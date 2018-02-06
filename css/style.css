@@ -1,0 +1,48 @@
+
+		body {
+			background-image:url("../images/leafbackground.jpg");/*same image name on all of them?*/
+			background-size:100%;
+			opacity: 0.77;
+		}
+	
+		.container {
+			width:600px;
+			height:auto;
+			box-shadow: 10px 10px 5px 
+			#475c68;
+			background-color: #4b8340
+
+
+
+			
+		}
+
+		.contactSection {
+			margin-top:50px;
+			text-align:center;
+			text-shadow: 5px 5px 2px #475c68;
+			color:black;
+			
+		}
+
+		
+
+		.form {
+			padding:20px;
+			padding-bottom:30px;
+			color:black;
+		}
+		
+		.submit {
+			background-color: black;
+			color:lightgrey;
+		}
+
+		.glyphicon {
+			color:#475c68;
+
+		}
+
+		
+
+	
