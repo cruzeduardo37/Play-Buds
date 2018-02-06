@@ -1,0 +1,26 @@
+nav {
+    background:#339933;
+}
+
+header {
+    background:#addaad;
+    
+}
+
+body {
+    padding-top: 54px;
+  }
+  
+  @media (min-width: 992px) {
+    body {
+      padding-top: 56px;
+      background-image:url("");
+    background-size:100%;
+    }
+  }
+  
+  .card {
+    height: 100%;
+  }
+
+
