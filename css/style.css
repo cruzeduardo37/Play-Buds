@@ -1,0 +1,14 @@
+body{
+	background-image: url("../images/marijuana-3065621_1920.jpg");
+	background-size: 100%;
+}
+
+.navbar{
+	background-color: #4b6811;
+	opacity:.75;
+	border-color: #4b6811;
+}
+
+#active{
+	background-color: #597c04;
+}
