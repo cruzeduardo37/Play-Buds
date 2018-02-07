@@ -18,65 +18,77 @@
 	var database = firebase.database();
 
 	var login = document.getElementById("signin-modal-button");
-		
-		login.addEventListener("click", error => {
-			  var email = document.getElementById("email").value;
-			  var password =  document.getElementById("password").value;
-			  var auth = firebase.auth();
 
-			  if (email.length < 4) {
-			  	alert("Please enter a valid email address");
-			  	return;
-			  }
-			  else if (password.length < 5) {
-			  	alert("Please enter a valid password");
-			  	return;
-			  }	
+	
+	$("#sign-up-form").submit(function (event) {
+		event.preventDefault();
+	    var email = document.getElementById("email-input-signup").value;
+	    var password =  document.getElementById("password-input-signup").value;
+	    var name = document.getElementById("name-input-signup").value
 
-			  var promise = auth.signInWithEmailAndPassword(email, password)
+	    database.ref().push({
+	    	loginName: name,
+	    	dateAdded: firebase.database.ServerValue.TIMESTAMP
 
-			  promise.catch(error => console.log(error.message));
-		});
+	    });
 
+	    var auth = firebase.auth();
 
-	var signup = document.getElementById("signup-modal-button");
+	    if (email.length < 0) {
+	    	alert("Please enter a valid email address");
+	    	return;
+	    }
+	    else if (password.length < 5) {
+	    	alert("Please enter a valid password");
+	    	return;
+	    }else if ($("#cancel").on("click", function(event){
+	    		$(".signup-modal-container").toggleClass("hidden")
+	    }));
 
-		signup.addEventListener("click", error => {
-			
+	    var promise = auth.createUserWithEmailAndPassword(email, password);
 
-			var email = document.getElementById("email-input").value;
-			var password =  document.getElementById("password-input").value;
-			var auth = firebase.auth();
+	    promise.catch(error => console.log(error.message));
+	});
 
-				// if (email.length < 4) {
-				// 	alert("Please enter a valid email address");
-				// 	return;
-				// }
-				// else if (password.length < 5) {
-				// 	alert("Please enter a valid password");
-				// 	return;
-				// }	
+	$("#sign-in-form").submit(function (event) {
+		event.preventDefault();
+	    var email = document.getElementById("email-input-login").value;
+	    var password =  document.getElementById("password-input-login").value;
+	    var auth = firebase.auth();
 
-			var promise = auth.createUserWithEmailAndPassword(email, pass);
+	    // if (email.length < 4) {
+	    // 	alert("Please enter a valid email address");
+	    // 	return;
+	    // }
+	    // else if (password.length < 5) {
+	    // 	alert("Please enter a valid password");
+	    // 	return;
+	    // }
 
-				promise
-				  .catch(error => console.log(error.message));
-			});
+	    var promise = auth.signInWithEmailAndPassword(email, password);
 
-		firebase.auth().onAuthStateChanged(firebaseUser => {
+	    promise.catch(error => console.log(error.message));
+	});
+
+	firebase.auth().onAuthStateChanged(firebaseUser => {
 
 			if (firebaseUser) {
 				console.log(firebaseUser);
-				window.location = "index.html";
+				window.location = "game.html";
 			}
 			else {
 				console.log("Not logged in");
 			}
 		});
+		
 
 }());
 
-$("#signUp, #get-started, #get-started2").on("click", function(event){
+
+
+
+
+$("#signUp, #get-started, #get-started2, #submit, #cancel").on("click", function(event){
 
 
 	$(".signup-modal-container").toggleClass("hidden")
@@ -88,7 +100,59 @@ $("#login").on("click", function(event){
 
 	$(".signin-modal-container").toggleClass("hidden1");
 
-})
+});
+
+
+
+
+
+// 		login.addEventListener("click", event => {
+// 			event.preventDefault();
+// 			  var email = document.getElementById("email").value;
+// 			  var password =  document.getElementById("password").value;
+// 			  var auth = firebase.auth();
+
+// 			  if (email.length < 4) {
+// 			  	alert("Please enter a valid email address");
+// 			  	return;
+// 			  }
+// 			  else if (password.length < 5) {
+// 			  	alert("Please enter a valid password");
+// 			  	return;
+// 			  }	
+
+// 			  var promise = auth.signInWithEmailAndPassword(email, password)
+
+// 			  promise.catch(error => console.log(error.message));
+// 		});
+
+
+// 	var signup = document.getElementById("signup-modal-button");
+
+// 		signup.addEventListener("click", error => {
+			
+
+// 			var email = document.getElementById("email-input").value;
+// 			var password =  document.getElementById("password-input").value;
+// 			var auth = firebase.auth();
+
+// 				// if (email.length < 4) {
+// 				// 	alert("Please enter a valid email address");
+// 				// 	return;
+// 				// }
+// 				// else if (password.length < 5) {
+// 				// 	alert("Please enter a valid password");
+// 				// 	return;
+// 				// }	
+
+// 			var promise = auth.createUserWithEmailAndPassword(email, password);
+
+// 				promise
+// 				  .catch(error => console.log(error.message));
+// 			});
+
+		
+
 
 
 

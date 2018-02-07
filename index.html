@@ -24,10 +24,10 @@
 		<nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#">Play Bud(s)</a>
+		      <a class="navbar-brand" href="index.html">Play Bud(s)</a>
 		    </div>
 		    <ul class="nav navbar-nav">
-		      <li id="active"><a href="#">Home</a></li>
+		      <li id="active"><a href="index.html">Home</a></li>
 		      <li><a href="#">About</a></li>
 		      <li><a href="#" id="get-started2">Get Started</a></li>
 		    </ul>
@@ -46,23 +46,26 @@
 
 		<div class="signup-modal-container hidden">
 			<div class="signup-modal-window">
-				<h2 id="title">Sign Up Form</h2>
+				<h2 id="title">Sign Up</h2>
 					<div id="signUpForm">
-						<form>
+						<form id="sign-up-form">
 							<div class="input-info">
 								<label class="label">First Name</label>
-								<input type="text" id="name-input" name="Name" placeholder="type your name here">
+								<input type="text" id="name-input-signup" name="Name" placeholder="type your name here">
 							</div>
 							<div class="input-info">
 								<label class="label">Email</label>
-								<input type="email" id= "email-input" name="Email" placeholder="Type your email address here">
+								<input type="email" id= "email-input-signup" name="Email" placeholder="Type your email address here">
 							</div>
 							<div class="input-info">
 								<label class="label">Password</label>
-								<input type="Password" id="password-input" name="Password" placeholder="Password">
+								<input type="Password" id="password-input-signup" name="Password" placeholder="Password">
 							</div>
 							<div class="input-info">
-								<input type="submit" value="submit" id="signup-modal-button">
+								<input type="submit" value="submit" id="submit">
+							</div>
+							<div class="input-info">
+								<button type="cancel" id="cancel">Cancel</button>
 							</div>
 						</form>
 					</div>
@@ -76,23 +79,26 @@
 
 		<div class="signin-modal-container hidden1">
 			<div class="signin-modal-window">
-				<h2 id="title">Sign Up Form</h2>
+				<h2 id="title">Login</h2>
 					<div id="signInForm">
-						<form>
+						<form id="sign-in-form">
 							<div class="input-info">
 								<label class="label">First Name</label>
-								<input type="text" id="name-input" name="Name" placeholder="type your name here">
+								<input type="text" id="name-input-login" name="Name" placeholder="type your name here">
 							</div>
 							<div class="input-info">
 								<label class="label">Email</label>
-								<input type="email" id= "email-input" name="Email" placeholder="Type your email address here">
+								<input type="email" id= "email-input-login" name="Email" placeholder="Type your email address here">
 							</div>
 							<div class="input-info">
 								<label class="label">Password</label>
-								<input type="Password" id="password-input" name="Password" placeholder="Password">
+								<input type="Password" id="password-input-login" name="Password" placeholder="Password">
 							</div>
 							<div class="input-info">
-								<input type="submit" value="submit" id="signin-modal-button">
+								<input type="submit" value="submit" id="submit">
+							</div>
+							<div class="input-info">
+								<button type="cancel" id="cancel">Cancel</button>
 							</div>
 						</form>
 					</div>
