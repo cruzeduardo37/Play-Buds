@@ -11,9 +11,18 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 			<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+		
+		<script type="text/javascript" src="javascript/playbud.js"></script>
+
+
+
 
 	</head>
 
@@ -41,14 +50,14 @@
 
 		<br><br><br><br>
 
-		<div class="container">
+		<div class="contactContainer">
 			<h1 class="contactSection"> Contact Section </h1>
 		
 			<div class="form">
 				<form>
 				  <div class="form-group">
 				    <label for="userName">Name:</label>
-				    <input type="name" class="form-control" id="name" placeholder="eg: Joe Bong">
+				    <input type="name" class="form-control" id="userName" placeholder="eg: Joe Bong">
 				  </div>
 				  <div class="form-group">
 				    <label for="userEmail">Email:</label>
@@ -56,14 +65,14 @@
 				  </div>
 				  <div class="form-group">
 				  	<label for="userComments">Comments:</label>
-				    <textarea class="form-control" rows="6"></textarea>
+				    <textarea class="form-control" rows="6" id="comments"></textarea>
 				  </div>
 
-				  <button type="submit" class="btn submit ">Submit</button>
+				  <button type="submit" class="btn submit" id="submitButton">Submit</button>
 				</form>
 			</div><!--Closing Form Div>
 
-		</div> <!-- Closing Container Div-->
+		</div> <!-Closing Container Div-->
 
 		
 		<!--ONLY USE <STYLE> TAGS IF WE DON'T HAVE A SEPERATE CSS FILE.-->
@@ -123,11 +132,11 @@
 		
 
 				<!--ONLY USE <SCRIPT> TAGS IF YOU DON'T HAVE A SEPERATE .JS FILE-->
-	<script>
+	
 		   
-		 //<!--ONLY USE <SCRIPT> TAGS IF YOU DON'T HAVE A SEPERATE .JS FILE--> 
+		 <!--ONLY USE <SCRIPT> TAGS IF YOU DON'T HAVE A SEPERATE .JS FILE--> 
 
-	</script>
+	
 
 
 

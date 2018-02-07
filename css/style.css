@@ -5,12 +5,14 @@
 			opacity: 0.77;
 		}
 	
-		.container {
+		.contactContainer {
 			width:600px;
+			margin:auto;
 			height:auto;
 			box-shadow: 10px 10px 5px 
 			#475c68;
 			background-color: #4b8340
+
 
 
 
@@ -26,23 +28,134 @@
 		}
 
 		
-
 		.form {
 			padding:20px;
 			padding-bottom:30px;
 			color:black;
 		}
 		
-		.submit {
+		#submitButton {
 			background-color: black;
 			color:lightgrey;
 		}
 
-		.glyphicon {
-			color:#475c68;
-
+		
+		.navbar{
+			background-color: #4b6811;
+			opacity:.75;
+			border-color: #4b6811;
+			color: white;
 		}
 
-		
+		.navbar-inverse .navbar-nav>li>a{
+			color: white;
+		}
 
-	
+		#active{
+			background-color: #759307;
+		}
+
+		/*.navbar-inverse .navbar-nav>li>a:visited {
+			color:#9d9d9d;
+		}*/
+		.navbar-inverse .navbar-brand{
+			color: white;
+		}
+
+		/*hover and focus selector section*/
+		.navbar-inverse .navbar-brand:hover {
+			color: #9d9d9d;
+		}
+
+		.navbar-inverse .navbar-brand:focus {
+			color: #9d9d9d;
+		}
+
+		.navbar-inverse .navbar-nav>li>a:hover {
+			color: #9d9d9d;
+		}
+
+		.navbar-inverse .navbar-nav>li>a:focus {
+			color: #9d9d9d;
+		}
+
+		#get-started:hover {
+			color: #9d9d9d;
+		}
+
+		#get-started:focus {
+			outline:none;
+			color: #9d9d9d;
+		}
+
+		/*container containing get started button*/
+		.container{
+			position: relative;
+		}
+
+		#get-started{
+			height: 150px;
+			width: 300px;
+			position: absolute;
+			background-color: #759307;
+			border-radius: 25px;
+			color: white;
+			opacity:.9;
+			top: 60%;
+			left: 60%;
+			font-size: 24px;
+			z-index: 50;
+		}
+		/*start of the modal*/
+		.signup-modal-container, .signin-modal-container{
+			height: 100vh;
+			width:  100vw;
+			position: fixed;
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			top: 0;
+			left: 0;
+			background-color: rgba(255,255,255, 0.75);
+			z-index: 1000;
+		}
+
+		.signup-modal-window, .signin-modal-window{
+			height:500px;
+			width: 600px;
+			background-color: grey;
+			position:fixed;
+			box-shadow: 0px 0px 60px 15px black;
+		}
+
+		#title{
+			text-align: center;
+		}
+
+		.hidden{
+			display: none;
+		}
+
+		.hidden1{
+			display: none;
+		}
+
+		#signUpForm, #signInForm{
+			background-color: white;
+			width: 75%;
+			justify-content: center;
+			align-items: center;
+		}
+
+		input, label{
+			display: block;
+		}
+		.label{
+			background-color: white;
+			color: black;
+		}
+
+				
+				
+
+			
