@@ -11,7 +11,7 @@
 			height:auto;
 			box-shadow: 10px 10px 5px 
 			#475c68;
-			background-color: #4b8340
+			background-color: #4b8340;
 
 
 
@@ -150,12 +150,34 @@
 		input, label{
 			display: block;
 		}
+
 		.label{
 			background-color: white;
 			color: black;
 		}
 
-				
-				
+		/*HANGMAN CSS*/
 
-			
+		#hangManHeader {
+			text-align:center;
+			font-size:25px;
+		}
+
+		#stonerDiv {
+			width: 300px;
+		  	position:relative;
+		  	margin-top:100px;  
+		  	margin:auto;
+		}
+
+		#smokingHangMan {
+			width:300px;
+			height:300px;
+		}
+		
+		#gameSection {
+			background:#4b8340;
+		}
+
+
+

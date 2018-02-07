@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>High Man</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+
+  <body>    
+    <div id="hangManHeader">
+      <h1 class="gameName">HANG MAN</h1>
+      <h3 class="stonerStyle">Stoner Style</h3>
+    </div>
+
+    <div id="hangManContainer">
+      <h2 id="stonerImage"></h2>
+      <!-- The div where our stoner image will be shown. -->
+      
+      <div id="stonerDiv"><img id="smokingHangMan" src="hangmansmoking.png" alt="stoner hang man"></div>
+
+      <div id="gameSection">
+        
+        <h2>Press any key to get started!</h2>
+        <div>
+
+          <h3 class="section-title">Wins</h3>
+          <!-- The div where our wins will be shown. -->
+          <div id="wins"></div>
+        </div>
+
+        <div id="current-word-section">
+          <h3 class="section-title">Current Word</h3>
+          <!-- The div where our current word (and guessing progress) will be shown. -->
+          <div id="current-word"></div>
+        </div>
+
+        <div id="guesses-remaining-section">
+          <h3 class="section-title">Number of Guesses Remaining</h3>
+          <!-- The div where our remaining guesses will be shown. -->
+          <div id="guesses-remaining"></div>
+        </div>
+
+        <div id="guessed-letters-section">
+          <h3 class="section-title">Letters Already Guessed</h3>
+          <!-- The div where our guesses letters will be shown. -->
+          <div id="guessed-letters"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+      <script type="text/javascript" src="javascript/hangman.js"></script>
+
+  </body>
+</html>
