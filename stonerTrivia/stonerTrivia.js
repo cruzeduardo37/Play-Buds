@@ -52,10 +52,14 @@ var game = {
 
     panel.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
 
+    panel.append("<div id='buttonWrapper'>");
+
     for (var i = 0; i < questions[this.currentQuestion].answers.length; i++) {
       panel.append("<button class='answer-button' id='button' data-name='" + questions[this.currentQuestion].answers[i]
       + "'>" + questions[this.currentQuestion].answers[i] + "</button>");
-    }
+    };
+
+     panel.append("</div>");
   },
 
   nextQuestion: function() {
@@ -73,7 +77,6 @@ var game = {
 
     panel.html("<h2>Out of Time!</h2>");
     panel.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer);
-    panel.append("<img src='" + questions[this.currentQuestion].image + "' />");
 
     if (this.currentQuestion === questions.length - 1) {
       setTimeout(this.results, 3 * 1000);
@@ -87,7 +90,7 @@ var game = {
 
     clearInterval(window.timer);
 
-    panel.html("<h2>All done, heres how you did!</h2>");
+    panel.html("<h2>All done, here is how you did!</h2>");
 
     $("#counter-number").text(this.counter);
 
@@ -115,7 +118,7 @@ var game = {
 
     panel.html("<h2>Nope!</h2>");
     panel.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer + "</h3>");
-    panel.append("<img src='" + questions[this.currentQuestion].image + "' />");
+   
 
     if (this.currentQuestion === questions.length - 1) {
       setTimeout(this.results.bind(this), 3 * 1000);
@@ -132,7 +135,7 @@ var game = {
     this.correct++;
 
     panel.html("<h2>Correct!</h2>");
-    panel.append("<img src='" + questions[this.currentQuestion].image + "' />");
+  
 
     if (this.currentQuestion === questions.length - 1) {
       setTimeout(this.results.bind(this), 3 * 1000);
@@ -160,6 +163,6 @@ $(document).on("click", ".answer-button", function(e) {
 });
 
 $(document).on("click", "#start", function() {
-  $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
+  $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>60</span> Seconds</h2>");
   game.loadQuestion.bind(game)();
 });
