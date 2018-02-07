@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Play Buds Homepage</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+
+</head>
+
+<body>
+
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">Play Bud(s)</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li id="active"><a href="#">Home</a></li>
+		      <li><a href="#">About</a></li>
+		      <li><a href="#">Contact</a></li>
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right">
+		      <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+		    </ul>
+		  </div>
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-9">
+					<div id="game" style="border: 1px solid grey; height:600px;">
+<!-- 						<div id="game-display">
+							
+						</div> -->
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div id="score" style="height:600px;">
+						<div class="row">
+							<div class="col-md-12">
+								<button type="button" class="btn btn-default btn-lg btn-block" id="trivia-game"><a href="game.js">Trivia Game</a></button>
+								<img src="images/placeholder.png" alt="trivia game" width="42%" height="10%" style="display: block; margin: 1% 0;">
+							</div>	
+						</div>	
+						<div class="row">
+							<div class="col-md-12">
+								<button type="button" class="btn btn-default btn-lg btn-block" id="hangman-game"><a href="">Hangman</a></button>
+								<img src="images/placeholder.png" alt="hangman" width="42%" height="10%" style="display: block; margin: 1% 0;">
+							</div>	
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<button type="button" class="btn btn-default btn-lg btn-block" id="gif-game"><a href="">Gif Game</a></button>
+								<img src="images/placeholder.png" alt="gif game" width="42%" height="10%" style="display: block; margin: 1% 0;">
+							</div>	
+						</div>																	
+					</div>
+				</div>
+			</div>
+
+			<footer class="col-md-12" style="position: fixed; bottom:0; text-align: center;">
+				<h5>&copy; Play Bud(s) 2018</h5>
+			</footer>
+		</div>
+
+						<!--jQuery-->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>	
+
+		<script type="text/javascript" src="javascript/playbud.js"></script>
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+</html>
