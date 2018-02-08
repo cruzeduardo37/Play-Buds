@@ -42,27 +42,52 @@ $(document).ready(function(){
 
 		// Question set
 		var questions = [{
-		  question: "What does THC stand for?",
-		  answers: ["tetrahydrocannabinol", "terrapherbalcannabinoid", "treshydrocannabis", "terolhempcarbonate"],
-		  correctAnswer: "tetrahydrocannabiol",
+		  question: "What propoganda film stoked fears of cannabis use causing moral and societal decay?",
+		  answers: ["This is The End", "Soylent Green", "Up in Smoke", "Reefer Madness"],
+		  correctAnswer: "Reefer Madness",
 		}, {
-		  question: "Which of these is NOT a commonly known name for marijuana?",
-		  answers: ["ganja", "weed", "pot", "spice"],
-		  correctAnswer: "spice, it is not cannabis and should not be consumed",
+		  question: "The Dude abides in which movie?",
+		  answers: ["Supertroopers", "The Big Lebowski", "Dazed and Confused", "Pineapple Express"],
+		  correctAnswer: "The Big Lebowski",
 		}, {
-		  question: "What is scientific name for the smokable portion of the cannabis plant?",
-		  answers: ["calyx", "flower", "greens", "buds"],
-		  correctAnswer: "calyx",
+		  question: "'Bye, Felicia' comes from which 1990's stoner film?",
+		  answers: ["How High", "Dude, Where's My Car?", "Friday", "Next Friday"],
+		  correctAnswer: "Friday",
 		}, {
-		  question: "Which of these is the highest grossing stoner movie?",
-		  answers: ["Up In Smoke", "Friday", "Fasttimes at Ridgemont High", "Pinapple Express"],
-		  correctAnswer: "Pineapple Express",
+		  question: "In what movie did Dolly Parton, Lily Tomlin, and Jane Fonda share a joint?",
+		  answers: ["Saving Grace", "Harold and Kumar go to White Castle", "9 to 5", "Steele Magnolias"],
+		  correctAnswer: "9 to 5",
 		}, {
-		  question: "Which was the first state to legalize the recreational use of marijuana?",
-		  answers: ["Oregon", "Washington", "California", "Colorado"],
-		  correctAnswer: "Oregon",
+		  question: "Sean Penn ordered a pizza to class in which 1980's film?",
+		  answers: ["Billy Madison", "Bill and Ted's Excellent Adventure", "Half-Baked", "Fast Times at Ridgemont High"],
+		  correctAnswer: "Fast Times at Ridgemont High",
 		}, {
 		}];
+
+		var newImages = []
+
+		for (var i = 0; i < questions.length; i ++){
+		  var movie = questions[i].correctAnswer
+		  var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=264a4525";
+
+		  $.ajax({
+		    async: false,
+		    url: queryURL,
+		    method: "GET"
+		  }).then(function(response) {
+		   newImages.push(response.Poster)
+
+		  });
+		};
+
+		setTimeout(function(){
+		  for (var i = 0; i < questions.length; i ++){
+		    questions[i].image = newImages[i]
+		  }
+		  console.log(questions)
+		}, 500)
+
+		// console.log(gif);
 
 		// Variable to hold our setInterval
 		var timer;
@@ -73,8 +98,8 @@ $(document).ready(function(){
 		  currentQuestion: 0,
 		  counter: countStartNumber,
 		  correct: 0,
-		  incorrect: 0,
-
+		  incorrect: 0, 
+		  
 		  countdown: function() {
 		    this.counter--;
 		    $("#counter-number").text(this.counter);
@@ -95,9 +120,9 @@ $(document).ready(function(){
 		    for (var i = 0; i < questions[this.currentQuestion].answers.length; i++) {
 		      panel.append("<button class='answer-button' id='button' data-name='" + questions[this.currentQuestion].answers[i]
 		      + "'>" + questions[this.currentQuestion].answers[i] + "</button>");
-
-		      console.log(questions);
+		      
 		    };
+
 		     panel.append("</div>");
 		  },
 
@@ -116,6 +141,7 @@ $(document).ready(function(){
 
 		    panel.html("<h2>Out of Time!</h2>");
 		    panel.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer);
+		    panel.append("<img src='" + questions[this.currentQuestion].image + "' />");
 
 		    if (this.currentQuestion === questions.length - 1) {
 		      setTimeout(this.results, 3 * 1000);
@@ -157,6 +183,7 @@ $(document).ready(function(){
 
 		    panel.html("<h2>Nope!</h2>");
 		    panel.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer + "</h3>");
+		    panel.append("<img src='" + questions[this.currentQuestion].image + "'>");
 		   
 
 		    if (this.currentQuestion === questions.length - 1) {
@@ -173,9 +200,8 @@ $(document).ready(function(){
 
 		    this.correct++;
 
-		    gameToken += 10;
-
 		    panel.html("<h2>Correct!</h2>");
+		    panel.append("<img src='" + questions[this.currentQuestion].image + "' />");
 		  
 
 		    if (this.currentQuestion === questions.length - 1) {
@@ -192,7 +218,7 @@ $(document).ready(function(){
 		    this.correct = 0;
 		    this.incorrect = 0;
 		    this.loadQuestion();
-		  },
+		  }
 		};
 
 		// CLICK EVENTS
@@ -392,9 +418,9 @@ $(document).ready(function(){
 		        this.wordsToPick[this.wordInPlay].picture + "' alt='" +
 		        this.wordsToPick[this.wordInPlay].song + "'>";
 		      // Play an audio track of the band.
-				// database.ref('users/' + uid[0]).push({
-				// 	hangman: this.wins
-				// });
+				database.ref('users/' + uid[0]).push({
+					hangman: this.wins
+				});
 		      // return true, which will trigger the restart of our game in the updatePage function.
 		      return true;
 		    }
@@ -441,7 +467,6 @@ $(document).ready(function(){
 		} else {
 			return;
 		}
-
 
 		console.log(gameToken);
 
@@ -495,13 +520,13 @@ $(document).ready(function(){
 		});
 
 		database.ref('users/' + uid[0]).push({
-			hangman: this.wins,
+			// hangman: this.wins,
 			gameToken: gameToken
 		});
 
 	});
 
-	console.log(gameToken);
+	console.log(uid);
 
 
 	// function writeNewPost(uid, username) {

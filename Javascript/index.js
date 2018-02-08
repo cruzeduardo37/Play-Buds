@@ -81,9 +81,6 @@
 }());
 
 
-
-
-
 $("#signUp, #get-started, #get-started2, #submit, #cancel").on("click", function(event){
 
 
