@@ -1,47 +1,175 @@
 
 
-/* entire container, keeps perspective */
-.flip-container {
-	perspective: 1000px;
-}
+/*/* entire container, keeps perspective */
+/*.flip-container {
+	float: left;
+  	width: 16.66666%;
+  	height: 25%;
+  	padding: 5px;
+  	text-align: center;
+	display: block;
+	perspective: 500px;
+	position: relative;
+	cursor: pointer;
+  	z-index: 50; 
+	-webkit-tap-highlight-color: rgba(0,0,0,0);  
+	@include width(800px){
+		width: 25%;
+		height: 16.666%;
+}*/
 	/* flip the pane when hovered */
-	.flip-container:active .flipper, .flip-container.hover .flipper {
+	/*.flip-container:active .flipper, .flip-container.hover .flipper {
 		transform: rotateY(180deg);
 	}
-	.flip-container:focus .flipper, .flip-container.hover .flipper {
+	.flip-container: .flipper, .flip-container.hover .flipper {
 		transform: rotateY(180deg);
-	}
+	}*/
 
-.flip-container, .front, .back {
-	width: 320px;
-	height: 480px;
-}
+/*.flip-container, .front, .back {
+	width: 200px;
+	height: 200px;
+}*/
 
 /* flip speed goes here */
-.flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-
-	position: relative;
+/*.flipper {
+		width: 100%;
+		height: 100%;
+		display: block;
+		transform-style: preserve-3d;
+		transition: .4s ease-in-out;
 }
+		&.picked, &.matched {
+			transform: rotateY(180deg);
+		}
+		&.matched {
+			animation: 1s matchAnim ease-in-out;
+			animation-delay: .4s;
+		}*/
+
 
 /* hide back of pane during swap */
-.front, .back {
+/*.front, .back {
 	backface-visibility: hidden;
-
-	position: absolute;
-	top: 0;
-	left: 0;
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+  	padding: 20px;
 }
+	img {
+  		max-width: 100%;
+  		display: block;
+  		margin: 0 auto;
+  		max-height: 100%;
+  	}*/
+
 
 /* front pane, placed above back */
-.front {
-	z-index: 2;
-	/* for firefox 31 */
-	transform: rotateY(0deg);
-}
+/*.front {
+	
+	 for firefox 31 
+	transform: rotateY(180deg);
+}*/
 
 /* back, initially hidden pane */
-.back {
-	transform: rotateY(180deg);
+/*.back {
+	z-index:  2;
+	transform: rotateY(0deg);
+}*/
+
+/*floating of the elements*/
+
+
+.card {
+  	float: left;
+  	height: 25%;
+  	padding: 5px;
+  	text-align: center;
+	display: block;
+	perspective: 500px;
+	position: relative;
+	cursor: pointer;
+  	z-index: 50; 
+	-webkit-tap-highlight-color: rgba(0,0,0,0);  
 }
+	
+	#A:hover{
+		transform: rotateY(-180deg);
+	}
+	#B:active{
+		transform: rotateY(-180deg);
+	}
+	#C:active{
+		transform: rotateY(-180deg);
+	}
+	#D:active{
+		transform: rotateY(-180deg);
+	}
+	#E:active{
+		transform: rotateY(-180deg);
+	}
+	#F:active{
+		transform: rotateY(-180deg);
+	}
+	#G:active{
+		transform: rotateY(-180deg);
+	}
+	#H:active{
+		transform: rotateY(-180deg);
+	}
+
+	.flipper {
+		width: 100%;
+		height: 100%;
+		display: block;
+		transform-style: preserve-3d;
+		transition: .4s ease-in-out;
+		
+		
+	}
+		&.picked, &.matched {
+			transform: rotateY(180deg);
+		}
+		&.matched {
+			animation: 1s matchAnim ease-in-out;
+			animation-delay: .4s;
+		}
+	
+
+  .front, .back {
+  	
+  	backface-visibility: hidden;
+  	
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  
+
+  
+}
+  	img {
+  		max-width: 100%;
+  		display: block;
+  		margin: 0 auto;
+  		max-height: 100%;
+  	}
+  
+  .front {
+  	transform: rotateY(-180deg);
+  	position: absolute;
+  	background-color: white;
+  }
+  .back{
+	transform: rotateX(0deg);
+	background-color: white;
+  }
+
+
+
+
+.credits{
+	clear: both;
+	align-items: center;
+}
+
