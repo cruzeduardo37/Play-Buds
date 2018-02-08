@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 		database.ref().on("value", function(snapshot){
 			
-			userName = snapshot.child(loginName);
+			userName = snapshot.(loginName);
 			console.log(userName);
 
 		})
