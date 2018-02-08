@@ -94,22 +94,22 @@
 	-webkit-tap-highlight-color: rgba(0,0,0,0);  
 }
 	
-	#A:hover{
+	.A {
 		transform: rotateY(-180deg);
 	}
-	#B:active{
+	.B:active{
 		transform: rotateY(-180deg);
 	}
-	#C:active{
+	.C:active{
 		transform: rotateY(-180deg);
 	}
-	#D:active{
+	.D:active{
 		transform: rotateY(-180deg);
 	}
-	#E:active{
+	.E:active{
 		transform: rotateY(-180deg);
 	}
-	#F:active{
+	.F:active{
 		transform: rotateY(-180deg);
 	}
 	#G:active{
@@ -148,6 +148,7 @@
 
   
 }
+
   	img {
   		max-width: 100%;
   		display: block;
@@ -159,6 +160,7 @@
   	transform: rotateY(-180deg);
   	position: absolute;
   	background-color: white;
+  	display: hidden;
   }
   .back{
 	transform: rotateX(0deg);

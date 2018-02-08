@@ -6,7 +6,9 @@ var cards = [
 		name: "flat-triangle",
 		image: "images/if_playstation-flat-icon-triangle-dark_341043.png",
 		id: 1,
-		tag: "A"
+		tag: "A",
+		item: "one"
+
 
 	},
 	
@@ -14,7 +16,8 @@ var cards = [
 		name: "checked-circle",
 		image: "images/if_circle-check_430087.png",
 		id: 2,
-		tag: "C"
+		tag: "C",
+		item: "two"
 
 	},
 	
@@ -22,7 +25,8 @@ var cards = [
 		name: "triangle-plain",
 		image: "images/if_button_shape_triangle_352894.png",
 		id: 3,
-		tag: "E"
+		tag: "E",
+		item: "three"
 
 	},
 	
@@ -30,35 +34,40 @@ var cards = [
 		name: "pause-circle",
 		image: "images/if_pause-circle-outline_326570.png",
 		id: 4,
-		tag: "G"
+		tag: "G",
+		item: "four"
 
 	},
 	{
 		name: "triangle-plain",
 		image: "images/if_button_shape_triangle_352894.png",
 		id: 3,
-		tag: "F"
+		tag: "F",
+		item: "five"
 
 	},
 	{
 		name: "checked-circle",
 		image: "images/if_circle-check_430087.png",
 		id: 2,
-		tag: "D"
+		tag: "D",
+		item: "six"
 
 	},
 	{
 		name: "pause-circle",
 		image: "images/if_pause-circle-outline_326570.png",
 		id: 4,
-		tag: "H"
+		tag: "H",
+		item: "seven"
 
 	},
 	{
 		name: "flat-triangle",
 		image: "images/if_playstation-flat-icon-triangle-dark_341043.png",
 		id: 1,
-		tag: "B"
+		tag: "B",
+		item: "eight"
 
 	}
 
@@ -88,6 +97,7 @@ $("document").ready(function buildHTML(){
 
 		var insideCard = $("<div>");
 		insideCard.addClass("flipper");
+		insideCard.addClass(cards[i].item);
 		insideCard.attr("id", cards[i].tag);
 		divContain.append(insideCard);
 
@@ -123,6 +133,7 @@ $("document").ready(function buildHTML(){
 
 		var insideCard = $("<div>");
 		insideCard.addClass("flipper");
+		insideCard.addClass(cards[i].item);
 		insideCard.attr("id", cards[i].tag);
 		divContain.append(insideCard);
 
@@ -150,11 +161,78 @@ $("document").ready(function buildHTML(){
 
 });
 
-$(".flipper").on("click", function(){
+// var itemNumber = [".one", ".two", ".three", ".four", ".five", ".six", ".seven", ".eight"]
 
-	$(this).stop();
 
-})
+
+
+
+
+
+	$(".flip-container").on("click", ".one", function(){
+		console.log("works");
+		$(".one").toggleClass("A");
+	});
+	$(".flip-container").on("click", ".two", function(){
+		console.log("works");
+		$(".two").toggleClass("A");
+		
+	});
+	$(".flip-container").on("click", ".three", function(){
+		console.log("works");
+		$(".three").toggleClass("A");
+		
+	});
+	$(".flip-container").on("click", ".four", function(){
+		console.log("works");
+		$(".four").toggleClass("A");
+		
+	});
+	$(".flip-container").on("click", ".five", function(){
+		console.log("works");
+		$(".five").toggleClass("A");
+		
+	});
+	$(".flip-container").on("click", ".six", function(){
+		console.log("works");
+		$(".six").toggleClass("A");
+		
+	});
+	$(".flip-container").on("click", ".seven", function(){
+		console.log("works");
+		$(".seven").toggleClass("A");
+		
+	});
+	$(".flip-container").on("click", ".eight", function(){
+		console.log("works");
+		$(".eight").toggleClass("A");
+		
+	});
+
+
+	
+
+
+// 	var cardFront = $(this).children(".front");
+// 	var cardBack = $(this).children(".back");
+
+// console.log("works")
+// 	if (cardFront.is(":visible")) {
+// 		console.log("front is visible")
+// 		cardFront.hide();
+// 		cardBack.show();
+
+
+// 	}else{
+// 		console.log("bask is visible")
+// 		console.log(this)
+// 		cardBack.hide();
+// 		cardFront.show();
+// 	}
+
+// 	// $(this).stop();
+
+// })
 
 
 //function to show and hide the cards
