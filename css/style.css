@@ -221,3 +221,40 @@ width: 300px;
 	background-color:#4b6811; 
 	opacity:0.8;
 }
+
+/*contact page styling*/
+
+.contactContainer {
+	width:600px;
+	margin:auto;
+	height:auto;
+	background-color: #4b6811;
+	opacity: 0.8;
+}
+
+.contactSection {
+	margin-top:2%;
+	text-align:center;
+	text-shadow: 1px 1px 1px #475c68;
+	color:white;
+}
+
+.form {
+	padding:20px;
+	margin:2%;
+	color:white;
+}
+
+#submitButton {
+	background-color: black;
+	color:lightgrey;
+}
+
+
+/*logo*/
+
+.logo {
+	max-width:400%;
+	max-height:400%;
+	margin-top:-28px;
+}
