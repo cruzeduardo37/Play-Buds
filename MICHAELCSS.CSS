@@ -1,0 +1,67 @@
+.signup-modal-container, .signin-modal-container{
+	height: 100vh;
+	width:  100vw;
+	position: fixed;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	background-image:url("images/leafbackground.jpg");
+	z-index: 1000;
+
+}
+
+.signup-modal-window, .signin-modal-window{
+	height:auto;
+	width:500px;
+	padding:10px;
+	background-color:#4b8340;
+	position:fixed;
+	box-shadow: 0px 0px 60px 15px black;
+	border-radius:60px;
+	opacity:.77;
+}
+
+#title{
+	text-align: center;
+	color:black;
+}
+
+.hidden{
+	display: none;
+}
+
+.hidden1{
+	display: none;
+}
+
+#signUpForm, #signInForm{
+	background-color:#4b8340;
+	width: 90%;
+	margin-left:auto;
+	margin-right:auto;
+	/*justify-content: center;*/
+	/*align-items: center;*/
+}
+
+input, label{
+	display: block;
+	width:75%;
+	margin-left:30px;
+
+}
+.label{
+	font-size:15px;
+	color: black;
+
+}
+
+#submitBtn, #cancelBtn {
+	margin-left:70%;
+	background-color:black;
+	color:lightgrey;
+	border-radius:10px;
+}
+
+

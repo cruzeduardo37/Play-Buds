@@ -1,6 +1,7 @@
 
 		body {
-			background-image:url("../images/leafbackground.jpg");/*same image name on all of them?*/
+			background-image:url("../images/leafbackground.jpg");
+			/*same image name on all of them?*/
 			background-size:100%;
 			opacity: 0.77;
 		}
@@ -13,8 +14,6 @@
 			#475c68;
 			background-color: #4b8340;
 
-
-	
 		}
 
 		.contactSection {
@@ -37,7 +36,6 @@
 			color:lightgrey;
 		}
 
-		
 		.navbar{
 			background-color: #4b8340;
 			opacity:.95;
@@ -104,10 +102,10 @@
 			height: 150px;
 			width: 300px;
 			position: absolute;
-			background-color: #759307;
+			background-color: #4b8340;
 			border-radius: 25px;
-			color: white;
-			opacity:.9;
+			color: black;
+			opacity:.90;
 			top: 60%;
 			left: 60%;
 			font-size: 24px;
@@ -123,20 +121,25 @@
 			align-items: center;
 			top: 0;
 			left: 0;
-			background-color: rgba(255,255,255, 0.75);
+			background-image:url("images/leafbackground.jpg");
 			z-index: 1000;
+
 		}
 
 		.signup-modal-window, .signin-modal-window{
-			height:500px;
-			width: 600px;
-			background-color: grey;
+			height:auto;
+			width:500px;
+			padding:10px;
+			background-color:#4b8340;
 			position:fixed;
 			box-shadow: 0px 0px 60px 15px black;
+			border-radius:60px;
+			
 		}
 
 		#title{
 			text-align: center;
+			color:black;
 		}
 
 		.hidden{
@@ -148,19 +151,77 @@
 		}
 
 		#signUpForm, #signInForm{
-			background-color: white;
-			width: 75%;
-			justify-content: center;
-			align-items: center;
+			background-color:#4b8340;
+			width: 90%;
+			margin-left:auto;
+			margin-right:auto;
+			/*justify-content: center;*/
+			/*align-items: center;*/
 		}
 
 		input, label{
 			display: block;
+			width:75%;
+			margin-left:30px;
+
+		}
+		.label{
+			font-size:15px;
+			color: black;
+
 		}
 
-		.label{
-			background-color: white;
-			color: black;
+		#submitBtn, #cancelBtn {
+			/*margin-left:70%;*/
+			margin:2% 5% 1% 70%;
+			background-color:black;
+			color:lightgrey;
+			border-radius:10px;
+		}
+
+
+		/*HOW HIGH ARE YOU MODAL(QUESTIONS MODAL)*/
+
+		#questionsModal {
+			/*display:none;*/
+			position:fixed;
+			z-index:1;
+			margin-top:0;
+			margin-left:0;
+			height:100%;
+			width:100%;
+			overflow:auto;
+			background-image:url("images/leafbackground.jpg");
+			
+		
+		}
+
+		.questionsModalConent {
+			text-align:center;
+			color:black;
+			background:lightgrey;
+			margin: 15% auto;
+			padding:30px;
+			padding-top:15px;
+			width:90%;
+			box-shadow: 10px 10px 5px;
+			border-radius:60px;
+			background-color: #4b8340;
+			opacity:.77;
+		
+		}
+
+		.scalePic {
+			width:10%;
+			height:100%;
+			border-radius:100px;
+			padding:10px;
+			font-size:15px;
+			transition: transform .2s;
+		}
+
+		.scalePic:hover {
+	    	transform: scale(1.25)
 		}
 
 		/*HANGMAN CSS*/
