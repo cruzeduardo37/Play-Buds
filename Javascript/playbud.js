@@ -13,12 +13,6 @@ var database = firebase.database();
 
 $(document).ready(function(){
 
-	firebase.auth().onAuthStateChanged(function(user) {
-	 window.user = user; // user is undefined if no user signed in
-	 console.log("worked");
-	 console.log(user);
-	});
-
 	var gameToken = 0;
 
 	//logout functionality
@@ -199,32 +193,7 @@ $(document).ready(function(){
 		    this.incorrect = 0;
 		    this.loadQuestion();
 		  },
-
-		  image: function() {
-		  	//code will go here
-		  }
 		};
-
-		// 	function image() {
-
-		// 		$("button").click(function(){
-
-		// 			var movie = $(this).attr("data-name");
-
-		// 	  		console.log(movie);
-		// 			// var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=264a4525";
-
-		// 			// $.ajax({
-		// 			//  url: queryURL,
-		// 			//  method: 'GET'
-		// 			// }).then(function(response) {
-		// 			//  console.log(response);
-		// 			// });
-		// 		});
-
-		// 	};
-
-		// console.log(image());
 
 		// CLICK EVENTS
 
@@ -423,8 +392,9 @@ $(document).ready(function(){
 		        this.wordsToPick[this.wordInPlay].picture + "' alt='" +
 		        this.wordsToPick[this.wordInPlay].song + "'>";
 		      // Play an audio track of the band.
-		      var audio = new Audio(this.wordsToPick[this.wordInPlay].preview);
-		      audio.play();
+				// database.ref('users/' + uid[0]).push({
+				// 	hangman: this.wins
+				// });
 		      // return true, which will trigger the restart of our game in the updatePage function.
 		      return true;
 		    }
@@ -460,7 +430,18 @@ $(document).ready(function(){
 
 		$("#game").html(trivia());
 
-		gameToken += 25;
+		if (gameToken = 25) {
+
+			gameToken += 25;
+
+			database.ref('users/' + uid[0]).push({
+				gameToken: gameToken
+			});
+
+		} else {
+			return;
+		}
+
 
 		console.log(gameToken);
 
@@ -491,20 +472,37 @@ $(document).ready(function(){
 
 		gameToken += 25;
 
+		database.ref('users/' + uid[0]).push({
+			gameToken: gameToken
+		});
+
 		$("#game").append();
 
 	});
 
-	function token() {
-
-		name = 
-		database.ref().push({
-
-		});
-	};
 
 	// token();
+	// console.log(gameToken);
+
+	var uid = [];
+
+	firebase.auth().onAuthStateChanged(function(user) {
+	 window.user = user; // user is undefined if no user signed in
+	 uid.push(user.uid);
+
+		database.ref('users/' + uid[0]).on("child_added", function(snapshot) {
+			var game = snapshot.val().gameToken;
+		});
+
+		database.ref('users/' + uid[0]).push({
+			hangman: this.wins,
+			gameToken: gameToken
+		});
+
+	});
+
 	console.log(gameToken);
+
 
 	// function writeNewPost(uid, username) {
 	//   username = gameToken;
