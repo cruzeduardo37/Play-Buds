@@ -127,11 +127,14 @@ input, label{
 }
 
 #wrapper {
-  width: 960px;
-  height: 95%;
-  box-sizing: border-box;
-  margin: 2.5% auto;
-  background-color: #67bd88;
+	width: 960px;
+	height: 95%;
+	box-sizing: border-box;
+	margin: 2.5%;
+	background-color: #4b8340;
+	padding: 1%;
+	text-align: center;
+	opacity: 0.8;
 }
 
 #sub-wrapper {
@@ -155,16 +158,17 @@ img {
 }
 
 h1 {
-  padding-top: 2.5%;
-  font-family: Geo, sans-serif;
-  font-size: 6.5em;
-  font-weight: bold;
-  color: green;
+	padding-top: 2.5%;
+	font-family: Geo, sans-serif;
+	font-size: 6.5em;
+	font-weight: bold;
+	color: white;
 }
 
 h2 {
-  margin-bottom: 25px;
-  font-size: 35px;
+	margin-bottom: 25px;
+	font-size: 35px;
+	text-decoration: underline;
 }
 
 h3 {
@@ -182,4 +186,41 @@ button:hover {
   background: yellowgreen;
   border: 2px solid green;
 }
+
+/*hangman game styling*/
+
+#hangManHeader {
+	text-align:center;
+	font-size:25px;
+}
+
+#stonerDiv {
+width: 300px;
+	position:relative;
+	margin-top:100px;  
+	margin:auto;
+}
+
+#smokingHangMan {
+	width:300px;
+	height:300px;
+}
+
+#gameSection {
+	background:#4b8340;
+	opacity: 0.8;
+	text-align: center;
+    width: 50%;
+    position: relative;
+    margin: auto;
+    color: white;
+}
+
+/*game html page*/
+
+#trivia-game, #hangman-game, #memory-game {
+	background-color:#4b6811; 
+	opacity:0.8;
+}
+
 
