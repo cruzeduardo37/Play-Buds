@@ -13,6 +13,12 @@ var database = firebase.database();
 
 $(document).ready(function(){
 
+	firebase.auth().onAuthStateChanged(function(user) {
+	 window.user = user; // user is undefined if no user signed in
+	 console.log("worked");
+	 console.log(user);
+	});
+
 	var gameToken = 0;
 
 	//logout functionality
@@ -20,12 +26,12 @@ $(document).ready(function(){
 
 		swal("You logged out");
 
-		// firebase.auth().signOut().then(function() {
-	 //  		console.log("signed out");
-	 //  		window.location = "login.html";
-		// }).catch(function(error) {
-		//   console.log(error);
-		// });	// error.message("try again");
+		firebase.auth().signOut().then(function() {
+	  		console.log("signed out");
+	  		window.location = "index.html";
+		}).catch(function(error) {
+		  console.log(error);
+		});
 
 	});
 
@@ -33,6 +39,7 @@ $(document).ready(function(){
 	// trivia game function
 
 	$("#trivia-display").hide();
+	$("#hangman-display").hide();
 
 	function trivia() {
 
@@ -94,8 +101,9 @@ $(document).ready(function(){
 		    for (var i = 0; i < questions[this.currentQuestion].answers.length; i++) {
 		      panel.append("<button class='answer-button' id='button' data-name='" + questions[this.currentQuestion].answers[i]
 		      + "'>" + questions[this.currentQuestion].answers[i] + "</button>");
-		    };
 
+		      console.log(questions);
+		    };
 		     panel.append("</div>");
 		  },
 
@@ -171,6 +179,8 @@ $(document).ready(function(){
 
 		    this.correct++;
 
+		    gameToken += 10;
+
 		    panel.html("<h2>Correct!</h2>");
 		  
 
@@ -188,8 +198,33 @@ $(document).ready(function(){
 		    this.correct = 0;
 		    this.incorrect = 0;
 		    this.loadQuestion();
+		  },
+
+		  image: function() {
+		  	//code will go here
 		  }
 		};
+
+		// 	function image() {
+
+		// 		$("button").click(function(){
+
+		// 			var movie = $(this).attr("data-name");
+
+		// 	  		console.log(movie);
+		// 			// var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=264a4525";
+
+		// 			// $.ajax({
+		// 			//  url: queryURL,
+		// 			//  method: 'GET'
+		// 			// }).then(function(response) {
+		// 			//  console.log(response);
+		// 			// });
+		// 		});
+
+		// 	};
+
+		// console.log(image());
 
 		// CLICK EVENTS
 
@@ -207,6 +242,209 @@ $(document).ready(function(){
 
 	// hangman game function
 
+	function hangman() {
+
+		var hangmanGame = {
+		 wordsToPick: {
+
+		 snoopdogg: {
+		  picture: "snoopdogg.jpg"
+		 }, 
+		 sethrogen:{
+		  picture: "sethrogen.jpg"
+		 }, 
+		 bobmarley: {
+		  picture: "bobmarley.jpg"
+		 }, 
+		 cheech: {
+		  picture: "cheech.jpg"
+		 }, 
+		 chong:{
+		  picture: "chong.gif"
+		 }, 
+		 wizkhalifa:{
+		  picture: "wizkhalifa.png"
+		 },
+		 willienelson:{
+		  picture: "willienelson.jpg"
+		 },
+		 harold:{
+		  picture: "harold.jpg"
+		 },
+		 kumar:{
+		  picture: "kumar.jpg"
+		 },
+		 shaggy:{
+		  picture: "shaggy.png"
+		 }
+
+
+		 },
+		  // Variables that set the initial state of our hangman game.
+		  wordInPlay: null,
+		  lettersOfTheWord: [],
+		  matchedLetters: [],
+		  guessedLetters: [],
+		  guessesLeft: 0,
+		  totalGuesses: 0,
+		  letterGuessed: null,
+		  wins: 0,
+		  // The setupGame method is called when the page first loads.
+		  setupGame: function() {
+		    // Here we pick a random word.
+		    var objKeys = Object.keys(this.wordsToPick);
+		    this.wordInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
+		    // Split the chosen word up into its individual letters.
+		    this.lettersOfTheWord = this.wordInPlay.split("");
+		    // Builds the representation of the word we are trying to guess and displays it on the page.
+		    // At the start it will be all underscores since we haven't guessed any letters ("_ _ _ _").
+		    this.rebuildWordView();
+		    // This function sets the number of guesses the user gets, and renders it to the HTML.
+		    this.processUpdateTotalGuesses();
+		  },
+		  // This function is run whenever the user guesses a letter..
+		  updatePage: function(letter) {
+		    // If the user has no guesses left, restart the game.
+		    if (this.guessesLeft === 0) {
+		      this.restartGame();
+		    }
+		    // Otherwise...
+		    else {
+		      // Check for and handle incorrect guesses.
+		      this.updateGuesses(letter);
+		      // Check for and handle correct guesses.
+		      this.updateMatchedLetters(letter);
+		      // Rebuild the view of the word. Guessed letters are revealed, unguessed letters have a "_".
+		      this.rebuildWordView();
+		      // If the user wins, restart the game.
+		      if (this.updateWins() === true) {
+		        this.restartGame();
+		      }
+		    }
+		  },
+		  // This function governs what happens when the user makes an incorrect guess (that they haven't guessed before).
+		  updateGuesses: function(letter) {
+		    // If the letter is not in the guessedLetters array, and the letter is not in the lettersOfTheWord array..
+		    if ((this.guessedLetters.indexOf(letter) === -1) && (this.lettersOfTheWord.indexOf(letter) === -1)) {
+		      // Add the letter to the guessedLetters array.
+		      this.guessedLetters.push(letter);
+		      // Decrease guesses by one.
+		      this.guessesLeft--;
+		      // Update guesses remaining and guesses letters on the page.
+		      document.querySelector("#guesses-remaining").innerHTML = this.guessesLeft;
+		      document.querySelector("#guessed-letters").innerHTML =
+		      this.guessedLetters.join(", ");
+		    }
+		  },
+		  // This function sets the initial guesses the user gets.
+		  processUpdateTotalGuesses: function() {
+		    // The user will get more guesses the longer the word is.
+		    this.totalGuesses = this.lettersOfTheWord.length + 5;
+		    this.guessesLeft = this.totalGuesses;
+		    // Render the guesses left to the page.
+		    document.querySelector("#guesses-remaining").innerHTML = this.guessesLeft;
+		  },
+		  // This function governs what happens if the user makes a successful guess.
+		  updateMatchedLetters: function(letter) {
+		    // Loop through the letters of the "solution".
+		    for (var i = 0; i < this.lettersOfTheWord.length; i++) {
+		      // If the guessed letter is in the solution, and we haven't guessed it already..
+		      if ((letter === this.lettersOfTheWord[i]) && (this.matchedLetters.indexOf(letter) === -1)) {
+		        // Push the newly guessed letter into the matchedLetters array.
+		        this.matchedLetters.push(letter);
+		      }
+		    }
+		  },
+		  // This function builds the display of the word that is currently being guessed.
+		  // For example, if we are trying to guess "blondie", it might display "bl_ndi_".
+		  rebuildWordView: function() {
+		    // We start with an empty string.
+		    var wordView = "";
+		    // Loop through the letters of the word we are trying to guess..
+		    for (var i = 0; i < this.lettersOfTheWord.length; i++) {
+		      // If the current letter has been guessed, display that letter.
+		      if (this.matchedLetters.indexOf(this.lettersOfTheWord[i]) !== -1) {
+		        wordView += this.lettersOfTheWord[i];
+		      }
+		      // If it hasn't been guessed, display a "_" instead.
+		      else {
+		        wordView += "&nbsp;_&nbsp;";
+		      }
+		    }
+		    // Update the page with the new string we built.
+		    document.querySelector("#current-word").innerHTML = wordView;
+		  },
+		  // Function that "restarts" the game by resetting all of the variables.
+		  restartGame: function() {
+		    document.querySelector("#guessed-letters").innerHTML = "";
+		    this.wordInPlay = null;
+		    this.lettersOfTheWord = [];
+		    this.matchedLetters = [];
+		    this.guessedLetters = [];
+		    this.guessesLeft = 0;
+		    this.totalGuesses = 0;
+		    this.letterGuessed = null;
+		    this.setupGame();
+		    this.rebuildWordView();
+		  },
+		  // Function that checks to see if the user has won.
+		  updateWins: function() {
+		    var win;
+		    // this won't work for words with double or triple letters
+		    // var lettersOfTheWordClone = this.lettersOfTheWord.slice(); //clones the array
+		    // this.matchedLetters.sort().join('') == lettersOfTheWordClone.sort().join('')
+		    // If you haven't correctly guessed a letter in the word yet, we set win to false.
+		    if (this.matchedLetters.length === 0) {
+		      win = false;
+		    }
+		    // Otherwise, we set win to true.
+		    else {
+		      win = true;
+		    }
+		    // If a letter appears in the lettersOfTheWord array, but not in the matchedLetters array, set win to false.
+		    // In English, if you haven't yet guessed all the letters in the word, you don't win yet.
+		    for (var i = 0; i < this.lettersOfTheWord.length; i++) {
+		      if (this.matchedLetters.indexOf(this.lettersOfTheWord[i]) === -1) {
+		        win = false;
+		      }
+		    }
+		    // If win is true...
+		    if (win) {
+		      // Increment wins.
+		      this.wins = this.wins + 1;
+		      // Update wins on the page.
+		      document.querySelector("#wins").innerHTML = this.wins;
+		      // Update the song title and band on the page.
+		      //document.querySelector("#stonerImage").innerHTML = this.wordsToPick[this.wordInPlay] +
+		      //" By " + this.wordInPlay;
+		      // Update the image of the band on the page.
+		      document.querySelector("#stonerDiv").innerHTML =
+		        "<img class='stonerImage' src='images/" +
+		        this.wordsToPick[this.wordInPlay].picture + "' alt='" +
+		        this.wordsToPick[this.wordInPlay].song + "'>";
+		      // Play an audio track of the band.
+		      var audio = new Audio(this.wordsToPick[this.wordInPlay].preview);
+		      audio.play();
+		      // return true, which will trigger the restart of our game in the updatePage function.
+		      return true;
+		    }
+		    // If win is false, return false to the updatePage function. The game goes on!
+		    return false;
+		  
+		  }
+		  };
+		  // Initialize the game when the page loads.
+		  hangmanGame.setupGame();
+
+		  // When a key is pressed.. 
+		  document.onkeyup = function(event) {
+		  // Capture pressed key and make it lowercase.
+		  hangmanGame.letterGuessed = String.fromCharCode(event.which).toLowerCase();
+		  // Pass the guessed letter into our updatePage function to run the game logic.
+		  hangmanGame.updatePage(hangmanGame.letterGuessed);
+		};
+
+	};
 
 	// gif game function
 
@@ -218,6 +456,7 @@ $(document).ready(function(){
 		error.preventDefault();
 
 		$("#trivia-display").show();
+		$("#hangman-display").hide();
 
 		$("#game").html(trivia());
 
@@ -232,110 +471,11 @@ $(document).ready(function(){
 
 		error.preventDefault();
 
-			function psychicGame() {
-			var compGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; 
-					 
-			//function randomly selecting in the array compGuess		 
-			function compCalc(num) {
-				return compGuess[Math.floor(Math.random() * compGuess.length)];
-			};
-
-			console.log(compCalc());
-
-			var win = 0;
-			var loss = 0;
-			var guess = 10;
-			var userGuessSoFar = [];
-					
-			//------------------document.onkeyup-----------------//
-			document.onkeyup = function(event) {
-
-				var userPress = String.fromCharCode(event.keyCode).toLowerCase();
-				userGuessSoFar.push(userPress); //pushes the user's input into the empty array userGuessSoFar
-
-			//conditional statement comparing a user's input to the computer's guess
-				if (compGuess.includes(userPress)) {
-
-					if (userPress === compCalc()) {
-						userGuessSoFar = [];
-						guess = 10;
-						win++;
-
-						var winDisplay = $("<h4>");
-
-						winDisplay.addClass("win");
-
-						winDisplay.append("wins " + win);
-
-						$("#game").append(winDisplay);
-						// document.getElementById("win").textContent = win;
-						alert("You Win!");
-						
-					}
-					else if (userPress){
-						guess--;
-						// document.getElementById("guessLeft").textContent = guess;
-						// document.getElementById("userGuess").textContent = userPress;
-
-						var guessDisplay = $("<h4>");
-						var press = $("<h4>");
-
-						guessDisplay.addClass("guess");
-						press.addClass("press");
-
-						guessDisplay.append(guess);
-						press.append(userPress);
-						
-						$("#game").append(press + guessDisplay);
-
-
-						if (guess == 0) {
-							guess = 10;
-							loss++;
-							// document.getElementById("loss").textContent = loss;				
-						
-							var lossDisplay = $("<h4>");
-
-							lossDisplay.addClass("loss");
-
-							lossDisplay.append("losses " + loss);
-
-							$("#game").append(lossDisplay);
-
-							alert("You lose, try again!");
-				
-						}		
-					}
-					if (userGuessSoFar[9]) {
-						userGuessSoFar = [];
-					}							
-				}
-				else {
-					alert("please press a letter!")
-				}
-
-				var guessesDisplay = $("<h4>");
-
-				guessesDisplay.addClass("display");
-
-				JSON.stringify(guessesDisplay.append(userGuessSoFar));
-
-				$("#game").append(guessDisplay);
-
-				// JSON.stringify(attempt);
-
-				console.log(userGuessSoFar);
-
-
-				// document.getElementById("guessDisplay").textContent = userGuessSoFar;
-		};
-		};
-
-
 		gameToken += 25;
 
-		$("#game").html(psychicGame());
+		$("#game").html(hangman());
 
+		$("#hangman-display").show();
 
 		$("#trivia-display").hide();
 
@@ -349,9 +489,59 @@ $(document).ready(function(){
 		// $("#hangman-display").hide();
 		// $("#gif-display").show();
 
+		gameToken += 25;
+
 		$("#game").append();
 
 	});
 
+	function token() {
+
+		name = 
+		database.ref().push({
+
+		});
+	};
+
+	// token();
+	console.log(gameToken);
+
+	// function writeNewPost(uid, username) {
+	//   username = gameToken;
+	//   var postData = {
+	//     author: username,
+	//     uid: uid
+	//   };
+
+	//   // Get a key for a new Post.
+	//   var newPostKey = firebase.database().ref().child('posts').push().key;
+
+	//   // Write the new post's data simultaneously in the posts list and the user's post list.
+	//   var updates = {};
+	//   updates['/posts/' + newPostKey] = postData;
+	//   updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+	//   return firebase.database().ref().update(updates);
+	// }
+
+	// var ref = database.ref("scores/" + uid);
+
+	// var userId = firebase.auth().currentUser.uid;
+	// return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+	// var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+	// // ...
+	// });
+
+	// console.log(userId);
+
+	// function userUid() {
+	// 	firebase.auth().onAuthStateChanged(user => {
+	// 		if (user) { this.userId = user.uid}
+	// 	});
+	// }
+
+	// console.log(userUid());
+
+	// var currentUser = 
 
 });
