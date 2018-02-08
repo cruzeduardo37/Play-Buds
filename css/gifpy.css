@@ -97,27 +97,7 @@
 	.A {
 		transform: rotateY(-180deg);
 	}
-	.B:active{
-		transform: rotateY(-180deg);
-	}
-	.C:active{
-		transform: rotateY(-180deg);
-	}
-	.D:active{
-		transform: rotateY(-180deg);
-	}
-	.E:active{
-		transform: rotateY(-180deg);
-	}
-	.F:active{
-		transform: rotateY(-180deg);
-	}
-	#G:active{
-		transform: rotateY(-180deg);
-	}
-	#H:active{
-		transform: rotateY(-180deg);
-	}
+	
 
 	.flipper {
 		width: 100%;
