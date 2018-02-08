@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+	<body>
 
 		<nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
@@ -46,28 +46,61 @@
 						      </div>
 						    </div>							
 						</div>
-						<div>
-							<!-- hangman game html -->
-						</div>
+						<div id="hangman-display">
+							<div id="hangManContainer">
+								<h2 id="stonerImage"></h2>
+								<!-- The div where our stoner image will be shown. -->
+
+								<div id="stonerDiv"><img id="smokingHangMan" src="images/hangmansmoking.png" alt="stoner hang man"></div>
+
+								<div id="gameSection">
+
+								<h2>Press any key to get started!</h2>
+								<div>
+
+								  <h3 class="section-title">Wins</h3>
+								  <!-- The div where our wins will be shown. -->
+								  <div id="wins"></div>
+								</div>
+
+								<div id="current-word-section">
+								  <h3 class="section-title">Current Word</h3>
+								  <!-- The div where our current word (and guessing progress) will be shown. -->
+								  <div id="current-word"></div>
+								</div>
+
+								<div id="guesses-remaining-section">
+								  <h3 class="section-title">Number of Guesses Remaining</h3>
+								  <!-- The div where our remaining guesses will be shown. -->
+								  <div id="guesses-remaining"></div>
+								</div>
+
+								<div id="guessed-letters-section">
+								  <h3 class="section-title">Letters Already Guessed</h3>
+								  <!-- The div where our guesses letters will be shown. -->
+								  <div id="guessed-letters"></div>
+								</div>
+
+								</div>
+							</div>						
+						</div>	
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div id="score" style="height:600px;">
 						<div class="row">
 							<div class="col-md-12">
-								<button type="button" class="btn btn-default btn-lg btn-block" id="trivia-game" style="background-color:#4b6811; opacity:0.75;"><a href="game.js"><img src="images/trivia-game.png" alt="trivia game" width="100%" height="10%" style="display: block; margin: 1% 0;">Trivia Game</a></button>
+								<button type="button" class="btn btn-default btn-lg btn-block" id="trivia-game"><a href="game.js"><img src="images/trivia-game.png" alt="trivia game" width="100%" height="8%" style="display: block; margin: 1% 0;">Trivia Game</a></button>
 							</div>	
 						</div>	
 						<div class="row">
 							<div class="col-md-12">
-								<button type="button" class="btn btn-default btn-lg btn-block" id="hangman-game"><a href="">Hangman</a></button>
-								<img src="images/placeholder.png" alt="hangman" width="42%" height="10%" style="display: block; margin: 1% 0;">
+								<button type="button" class="btn btn-default btn-lg btn-block" id="hangman-game"><a href=""><img src="images/hangman_1.png" alt="hangman" width="100%" height="8%" style="display: block; margin: 1% 0;">Hangman</a></button>
 							</div>	
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<button type="button" class="btn btn-default btn-lg btn-block" id="gif-game"><a href="">Gif Game</a></button>
-								<img src="images/placeholder.png" alt="gif game" width="42%" height="10%" style="display: block; margin: 1% 0;">
+								<button type="button" class="btn btn-default btn-lg btn-block" id="memory-game"><a href=""><img src="images/placeholder.png" alt="gif game" width="100%" height="8%" style="display: block; margin: 1% 0;">Memory Game</a></button>
 							</div>	
 						</div>																	
 					</div>
@@ -86,5 +119,5 @@
 
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-</body>
+	</body>
 </html>
