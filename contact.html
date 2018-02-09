@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>      
+     <meta charset="utf-8">
+     <title>Play Buds | Contact Us</title>
+      
+        <!--ADD LINKS (JAVASCRIPT,CSS,BOOTSTRAP,ETC.)-->
+
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  </head>
+
+  <body>
+    <div class="header">
+      
+      <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="index.html"><img src="images/playbudslogolightgreen.png" alt="playbuds logo" class="logo"></a>
+          </div>
+            <ul class="nav navbar-nav">
+                <li id="active"><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+               <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" id="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+               <li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+      </nav>
+
+    </div>
+
+ <!--    <br><br><br><br> -->
+
+    <div class="contactContainer">
+      <h1 class="contactSection"> Contact Us! </h1>
+    
+      <div class="form">
+        <form>
+          <div class="form-group">
+            <label for="userName">Name:</label>
+            <input type="name" class="form-control" id="userName" placeholder="eg: Joe Bong">
+          </div>
+          <div class="form-group">
+            <label for="userEmail">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="eg: bongclouds@ismoke.com">
+          </div>
+          <div class="form-group">
+            <label for="userComments">Comments:</label>
+            <textarea class="form-control" rows="6" id="comments"></textarea>
+          </div>
+
+          <button type="submit" class="btn submit" id="submitButton">Submit</button>
+        </form>
+      </div>
+
+          <div class="signup-modal-container hidden">
+      <div class="signup-modal-window">
+        <h2 id="title">Sign Up</h2>
+          <div id="signUpForm">
+            <form id="sign-up-form">
+              <div class="input-info">
+                <label class="label">Name</label>
+
+                <input type="name" id="name-input-signup" name="Name" placeholder="Barry Bongs">
+              </div>
+              <br>
+              <div class="input-info">
+                <label class="label">Email</label>
+                <input type="email" id= "email-input-signup" name="Email" placeholder="barrybongs25@ismoke.com">
+              </div>
+              <br>
+              <div class="input-info">
+                <label class="label">Password</label>
+                <input type="Password" id="password-input-signup" name="Password" placeholder="Password">
+              </div>
+              <br>
+              <div class="input-info">
+                <button type="submit" value="submit" id="submitBtn">Submit
+                </button>
+              </div>
+              <br>
+              <div class="input-info">
+                <button type="cancelBtn" id="cancelBtn">Cancel</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="signin-modal-container hidden1">
+      <div class="signin-modal-window">
+        <h2 id="title">Login</h2>
+          <div id="signInForm">
+            <form id="sign-in-form">
+              
+              <div class="input-info">
+                <label class="label">Email</label>
+                <input type="email" id= "email-input-login" name="Email" placeholder="barrybongs25@ismoke.com">
+              </div>
+              <div class="input-info">
+                <label class="label">Password</label>
+                <input type="Password" id="password-input-login" name="Password" placeholder="Password">
+              </div>
+              <div class="input-info">
+                <button type="submit" value="submit" id="submitBtn">Submit</button>
+              </div>
+              <div class="input-info">
+                <button type="cancelBtn" id="cancelBtn">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+      <!-- footer -->
+
+      <footer class="col-md-12" style="position: fixed; bottom:0; text-align: center;">
+        <h5>&copy; Play Bud(s) 2018</h5>
+      </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+
+ <!--    <script type="text/javascript" src="Javascript/index.js"></script> -->
+    
+    <script type="text/javascript" src="javascript/contact.js"></script>
+
+    </body>
+
+</html>
