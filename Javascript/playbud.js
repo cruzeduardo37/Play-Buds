@@ -29,11 +29,14 @@ $(document).ready(function(){
 
 	});
 
-
+//******************************************************
 	// trivia game function
+//******************************************************
+
 
 	$("#trivia-display").hide();
 	$("#hangman-display").hide();
+	$("#memory-display").hide();	
 
 	function trivia() {
 
@@ -235,7 +238,11 @@ $(document).ready(function(){
 		});
 	};
 
+
+//******************************************************
 	// hangman game function
+//******************************************************
+
 
 	function hangman() {
 
@@ -243,34 +250,34 @@ $(document).ready(function(){
 		 wordsToPick: {
 
 		 snoopdogg: {
-		  picture: "snoopdogg.jpg"
+		  picture: "../images/hangman/snoopdogg.jpg"
 		 }, 
 		 sethrogen:{
-		  picture: "sethrogen.jpg"
+		  picture: "../images/hangman/sethrogen.jpg"
 		 }, 
 		 bobmarley: {
-		  picture: "bobmarley.jpg"
+		  picture: "../images/hangman/bobmarley.jpg"
 		 }, 
 		 cheech: {
-		  picture: "cheech.jpg"
+		  picture: "../images/hangman/cheech.jpg"
 		 }, 
 		 chong:{
-		  picture: "chong.gif"
+		  picture: "../images/hangman/chong.gif"
 		 }, 
 		 wizkhalifa:{
-		  picture: "wizkhalifa.png"
+		  picture: "../images/hangman/wizkhalifa.png"
 		 },
 		 willienelson:{
-		  picture: "willienelson.jpg"
+		  picture: "../images/hangman/willienelson.jpg"
 		 },
 		 harold:{
-		  picture: "harold.jpg"
+		  picture: "../images/hangman/harold.jpg"
 		 },
 		 kumar:{
-		  picture: "kumar.jpg"
+		  picture: "../images/hangman/kumar.jpg"
 		 },
 		 shaggy:{
-		  picture: "shaggy.png"
+		  picture: "../images/hangman/shaggy.png"
 		 }
 
 
@@ -442,7 +449,9 @@ $(document).ready(function(){
 
 	};
 
-	// memory game function
+//******************************************************
+// memory game function
+//******************************************************
 
 	function memory() {
 
