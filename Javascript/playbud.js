@@ -18,10 +18,8 @@ $(document).ready(function(){
 	//logout functionality
 	$("#logout").click(function(error) {
 
-		swal("You logged out");
-
 		firebase.auth().signOut().then(function() {
-	  		console.log("signed out");
+	  		swal("You logged out");
 	  		window.location = "index.html";
 		}).catch(function(error) {
 		  console.log(error);
@@ -29,14 +27,15 @@ $(document).ready(function(){
 
 	});
 
-//******************************************************
-	// trivia game function
-//******************************************************
-
+//hide function to hide games until user clicks on them
 
 	$("#trivia-display").hide();
 	$("#hangman-display").hide();
-	$("#memory-display").hide();	
+	$("#memory-display").hide();
+
+//******************************************************
+	// trivia game function
+//******************************************************	
 
 	function trivia() {
 
@@ -67,25 +66,25 @@ $(document).ready(function(){
 		}, {
 		}];
 
-		var newImages = []
+		var newGif = []
 
 		for (var i = 0; i < questions.length; i ++){
 		  var movie = questions[i].correctAnswer
-		  var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=264a4525";
+		  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=4rflNs59030SuauN0DtLlygAYaj36Q6J&q=" + movie + "&limit=1&offset=0&rating=PG&lang=en";
 
 		  $.ajax({
 		    async: false,
 		    url: queryURL,
 		    method: "GET"
 		  }).then(function(response) {
-		   newImages.push(response.Poster)
-
+		   	newGif.push(response.data[0].images.fixed_height_small.url)
+		  	console.log(response.data[0].images.fixed_height_small.url);
 		  });
 		};
 
 		setTimeout(function(){
 		  for (var i = 0; i < questions.length; i ++){
-		    questions[i].image = newImages[i]
+		    questions[i].image = newGif[i]
 		  }
 		  console.log(questions)
 		}, 500)
@@ -131,7 +130,7 @@ $(document).ready(function(){
 
 		  nextQuestion: function() {
 		    this.counter = window.countStartNumber;
-		    $("#counter-number").text(this.counter);
+		    $("#counter-number").html(parseInt(this.counter));
 		    this.currentQuestion++;
 		    this.loadQuestion.bind(this)();
 		  },
@@ -457,12 +456,46 @@ $(document).ready(function(){
 
 //create an opening page setting the rules, etc.
 	//create an array of cards to arrange on the page
-	var cards = [
+	
+	var newMovie = ["Pineapple Express", "Clerks", "reefer", "marley"];
+
+	for (var i = 0; i < newMovie.length; i ++){
+  	var movie = newMovie[i];
+  	var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=264a4525";
+
+	  $.ajax({
+	    async: false,
+	    url: queryURL,
+	    method: "GET"
+	  }).then(function(response) {
+	   	//newMovie.push(response.Poster)
+	  	console.log(response.Poster);
+	   	helpMe.push(response.Poster)
+
+	  });
+	};
+	var helpMe = [];
+	console.log(helpMe);
+
+
+	//create an initialize function to run at the start of the page, will include reset, shuffle, reset modals,
+	// function(initialize){
+
+
+	//function to put the cards onto the page
+	// function(buildHTML){
+		//main card div
+	document.body.onkeyup = function (e) {
+
+	if (e.keyCode == 32) {
+
+			var cards = [
 		{
 			name: "flat-triangle",
-			image: "images/if_playstation-flat-icon-triangle-dark_341043.png",
+			image: String(helpMe[0]),
 			id: 1,
 			tag: "A",
+			movieImage: "ghost",
 			item: "one"
 
 
@@ -470,166 +503,158 @@ $(document).ready(function(){
 		
 		{
 			name: "checked-circle",
-			image: "images/if_circle-check_430087.png",
+			image: String(helpMe[1]),
 			id: 2,
 			tag: "C",
+			movieImage: "ghost",
 			item: "two"
 
 		},
 		
 		{
 			name: "triangle-plain",
-			image: "images/if_button_shape_triangle_352894.png",
+			image: String(helpMe[3]),
 			id: 3,
 			tag: "E",
+			movieImage: "ghost",
 			item: "three"
 
 		},
 		
 		{
 			name: "pause-circle",
-			image: "images/if_pause-circle-outline_326570.png",
+			image: String(helpMe[2]),
 			id: 4,
 			tag: "G",
+			movieImage: "ghost",
 			item: "four"
 
 		},
 		{
 			name: "triangle-plain",
-			image: "images/if_button_shape_triangle_352894.png",
+			image: String(helpMe[3]),
 			id: 3,
 			tag: "F",
+			movieImage: "ghost",
 			item: "five"
 
 		},
 		{
 			name: "checked-circle",
-			image: "images/if_circle-check_430087.png",
+			image: String(helpMe[1]),
 			id: 2,
 			tag: "D",
+			movieImage: "ghost",
 			item: "six"
 
 		},
 		{
 			name: "pause-circle",
-			image: "images/if_pause-circle-outline_326570.png",
+			image: String(helpMe[2]),
 			id: 4,
 			tag: "H",
+			movieImage: "ghost",
 			item: "seven"
 
 		},
 		{
 			name: "flat-triangle",
-			image: "images/if_playstation-flat-icon-triangle-dark_341043.png",
+			image: String(helpMe[0]),
 			id: 1,
 			tag: "B",
+			movieImage: "ghost",
 			item: "eight"
 
 		}
 
 	];
 
-		var gifName = [];
-		var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=4rflNs59030SuauN0DtLlygAYaj36Q6J&q=" + gifName + "&limit=15&offset=0&rating=PG&lang=en";
-
-
-		$.ajax({
-				url: queryURL,
-				method: "GET"
-			}).then(function(response){
-
-			});
-
-
-	//create an initialize function to run at the start of the page, will include reset, shuffle, reset modals,
-	// function(initialize){
-
-
-	//functio to put the cards onto the page
-	// function(buildHTML){
-		//main card div
-	$("document").ready(buildHTML);
-
-	function buildHTML(){
-
-		$(".game").empty();
-		$(".game2").empty();
-
-		console.log("buildHTML");
-
-		cards = shuffle(cards);
-
-
-		for (var i = 0; i < 4; i++) {
 		
-			var divContain = $("<div>");
-			divContain.addClass("card flip-container col-md-3");
-			$(".game").append(divContain);
+		$("document").ready(buildHTML);
 
-			var insideCard = $("<div>");
-			insideCard.addClass("flipper");
-			insideCard.addClass(cards[i].item);
-			insideCard.attr("id", cards[i].tag);
-			insideCard.attr("data-id", cards[i].id);
-			divContain.append(insideCard);
+		function buildHTML(){
 
-			var front = $("<div>");
-			front.addClass("front");
-			insideCard.append(front);
+			$(".game").empty();
+			$(".game2").empty();
 
-			var imageFront = $("<img>");
-			imageFront.attr("src", cards[i].image);
-			imageFront.attr("width", "200px");
-			imageFront.attr("height", "200px");
-			front.append(imageFront);
+			console.log("buildHTML");
 
-			var back = $("<div>");
-			back.addClass("back");
-			back.attr("src", "../images/marijuana.png")
-			insideCard.append(back);
-		
-			var imageBack = $("<img>");
-			imageBack.attr("src", "images/marijuana.png");
-			imageBack.attr("width", "200px");
-			imageBack.attr("height", "200px");
-			back.append(imageBack);
+			cards = shuffle(cards);
+
+
+			for (var i = 0; i < 4; i++) {
+			
+				var divContain = $("<div>");
+				divContain.addClass("card flip-container col-md-3");
+				$(".game").append(divContain);
+
+				var insideCard = $("<div>");
+				insideCard.addClass("flipper");
+				insideCard.addClass(cards[i].item);
+				insideCard.attr("id", cards[i].tag);
+				insideCard.attr("data-id", cards[i].id);
+				divContain.append(insideCard);
+
+				var front = $("<div>");
+				front.addClass("front");
+				insideCard.append(front);
+
+				var imageFront = $("<img>");
+				imageFront.attr("src", cards[i].image);
+				imageFront.attr("width", "200px");
+				imageFront.attr("height", "200px");
+				front.append(imageFront);
+
+				var back = $("<div>");
+				back.addClass("back");
+				back.attr("src", "../images/marijuana.png")
+				insideCard.append(back);
+			
+				var imageBack = $("<img>");
+				imageBack.attr("src", "images/marijuana.png");
+				imageBack.attr("width", "200px");
+				imageBack.attr("height", "200px");
+				back.append(imageBack);
+			};
+
+			for (var i = 4; i < cards.length; i++) {
+			
+				var divContain = $("<div>");
+				divContain.addClass("card flip-container col-md-3");
+				$(".game2").append(divContain);
+
+				var insideCard = $("<div>");
+				insideCard.addClass("flipper");
+				insideCard.addClass(cards[i].item);
+				insideCard.attr("id", cards[i].tag);
+				insideCard.attr("data-id", cards[i].id);
+				divContain.append(insideCard);
+
+				var front = $("<div>");
+				front.addClass("front");
+				insideCard.append(front);
+
+				var imageFront = $("<img>");
+				imageFront.attr("src", cards[i].image);
+				imageFront.attr("width", "200px");
+				imageFront.attr("height", "200px");
+				front.append(imageFront);
+
+				var back = $("<div>");
+				back.addClass("back");
+				back.attr("src", "../images/marijuana.png")
+				insideCard.append(back);
+			
+				var imageBack = $("<img>");
+				imageBack.attr("src", "images/marijuana.png");
+				imageBack.attr("width", "200px");
+				imageBack.attr("height", "200px");
+				back.append(imageBack);
+			};
 		};
 
-		for (var i = 4; i < cards.length; i++) {
-		
-			var divContain = $("<div>");
-			divContain.addClass("card flip-container col-md-3");
-			$(".game2").append(divContain);
-
-			var insideCard = $("<div>");
-			insideCard.addClass("flipper");
-			insideCard.addClass(cards[i].item);
-			insideCard.attr("id", cards[i].tag);
-			insideCard.attr("data-id", cards[i].id);
-			divContain.append(insideCard);
-
-			var front = $("<div>");
-			front.addClass("front");
-			insideCard.append(front);
-
-			var imageFront = $("<img>");
-			imageFront.attr("src", cards[i].image);
-			imageFront.attr("width", "200px");
-			imageFront.attr("height", "200px");
-			front.append(imageFront);
-
-			var back = $("<div>");
-			back.addClass("back");
-			back.attr("src", "../images/marijuana.png")
-			insideCard.append(back);
-		
-			var imageBack = $("<img>");
-			imageBack.attr("src", "images/marijuana.png");
-			imageBack.attr("width", "200px");
-			imageBack.attr("height", "200px");
-			back.append(imageBack);
 		};
-	}
+	};	
 
 	// var itemNumber = [".one", ".two", ".three", ".four", ".five", ".six", ".seven", ".eight"]
 
