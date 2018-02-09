@@ -489,16 +489,15 @@ $(document).ready(function(){
 
 	if (e.keyCode == 32) {
 
-			var cards = [
+		$("#space-bar").hide();
+
+		var cards = [
 		{
 			name: "flat-triangle",
 			image: String(helpMe[0]),
 			id: 1,
 			tag: "A",
-			movieImage: "ghost",
 			item: "one"
-
-
 		},
 		
 		{
@@ -506,7 +505,6 @@ $(document).ready(function(){
 			image: String(helpMe[1]),
 			id: 2,
 			tag: "C",
-			movieImage: "ghost",
 			item: "two"
 
 		},
@@ -516,7 +514,6 @@ $(document).ready(function(){
 			image: String(helpMe[3]),
 			id: 3,
 			tag: "E",
-			movieImage: "ghost",
 			item: "three"
 
 		},
@@ -526,7 +523,6 @@ $(document).ready(function(){
 			image: String(helpMe[2]),
 			id: 4,
 			tag: "G",
-			movieImage: "ghost",
 			item: "four"
 
 		},
@@ -535,7 +531,6 @@ $(document).ready(function(){
 			image: String(helpMe[3]),
 			id: 3,
 			tag: "F",
-			movieImage: "ghost",
 			item: "five"
 
 		},
@@ -544,7 +539,6 @@ $(document).ready(function(){
 			image: String(helpMe[1]),
 			id: 2,
 			tag: "D",
-			movieImage: "ghost",
 			item: "six"
 
 		},
@@ -553,7 +547,6 @@ $(document).ready(function(){
 			image: String(helpMe[2]),
 			id: 4,
 			tag: "H",
-			movieImage: "ghost",
 			item: "seven"
 
 		},
@@ -562,7 +555,6 @@ $(document).ready(function(){
 			image: String(helpMe[0]),
 			id: 1,
 			tag: "B",
-			movieImage: "ghost",
 			item: "eight"
 
 		}
@@ -601,7 +593,7 @@ $(document).ready(function(){
 
 				var imageFront = $("<img>");
 				imageFront.attr("src", cards[i].image);
-				imageFront.attr("width", "200px");
+				imageFront.attr("width", "150px");
 				imageFront.attr("height", "200px");
 				front.append(imageFront);
 
@@ -636,7 +628,7 @@ $(document).ready(function(){
 
 				var imageFront = $("<img>");
 				imageFront.attr("src", cards[i].image);
-				imageFront.attr("width", "200px");
+				imageFront.attr("width", "150px");
 				imageFront.attr("height", "200px");
 				front.append(imageFront);
 

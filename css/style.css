@@ -415,6 +415,15 @@ img {
 	align-items: center;
 }
 
+#space-bar {
+	width: 100%;
+	padding: 10% 5%;
+	background-color: #4b6811;
+	opacity: 0.8;
+	text-align: center;
+}
+
+
 /*questionsmodal*/
 
 #questionsModal {
@@ -447,11 +456,18 @@ img {
 .scalePic {
 	width:10%;
 	height:100%;
-	border-radius:100px;
+	border-radius:25px;
 	padding:10px;
-	font-size:15px;
+	font-size: 20px;
 	transition: transform .2s;
+	display: inline;
 }
 .scalePic:hover {
-	transform: scale(1.25)
+	transform: scale(1.25);
+}
+
+.toke {
+	width: 60px;
+	height: 60px;
+	border-radius: 8px
 }
