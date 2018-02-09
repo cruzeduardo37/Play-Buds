@@ -552,7 +552,10 @@ $(document).ready(function(){
 
 	function buildHTML(){
 
-		console.log("buildHTML")
+		$(".game").empty();
+		$(".game2").empty();
+
+		console.log("buildHTML");
 
 		cards = shuffle(cards);
 
@@ -769,9 +772,6 @@ $(document).ready(function(){
 	});
 
 
-	// token();
-	// console.log(gameToken);
-
 	var uid = [];
 
 	firebase.auth().onAuthStateChanged(function(user) {
@@ -790,44 +790,5 @@ $(document).ready(function(){
 	});
 
 	console.log(uid);
-
-
-	// function writeNewPost(uid, username) {
-	//   username = gameToken;
-	//   var postData = {
-	//     author: username,
-	//     uid: uid
-	//   };
-
-	//   // Get a key for a new Post.
-	//   var newPostKey = firebase.database().ref().child('posts').push().key;
-
-	//   // Write the new post's data simultaneously in the posts list and the user's post list.
-	//   var updates = {};
-	//   updates['/posts/' + newPostKey] = postData;
-	//   updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
-	//   return firebase.database().ref().update(updates);
-	// }
-
-	// var ref = database.ref("scores/" + uid);
-
-	// var userId = firebase.auth().currentUser.uid;
-	// return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-	// var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-	// // ...
-	// });
-
-	// console.log(userId);
-
-	// function userUid() {
-	// 	firebase.auth().onAuthStateChanged(user => {
-	// 		if (user) { this.userId = user.uid}
-	// 	});
-	// }
-
-	// console.log(userUid());
-
-	// var currentUser = 
 
 });
