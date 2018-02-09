@@ -457,7 +457,7 @@ $(document).ready(function(){
 //create an opening page setting the rules, etc.
 	//create an array of cards to arrange on the page
 	
-	var newMovie = ["ghost", "lion king", "reefer", "marley"];
+	var newMovie = ["Pineapple Express", "Clerks", "reefer", "marley"];
 
 	for (var i = 0; i < newMovie.length; i ++){
   	var movie = newMovie[i];
