@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Play Buds About</title>
+
+
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+
+      <!--Our styles for Play Buds-->
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+      <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="index.html"><img src="images/playbudslogolightgreen.png" alt="playbuds logo" class="logo"></a>
+          </div>
+            <ul class="nav navbar-nav">
+                <li id="active"><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+               <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" id="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+               <li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+      </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4 header">
+        <h1 class="display-3">The Play Bud(s) Story</h1>
+        <p class="lead">This is our submission for our first project for the University of Denver Full Time Coding Bootcamp. We hope you enjoy playing our games. </p>
+        <a href="#" class="btn btn-primary btn-lg">Play Now!</a>
+      </header>
+
+      <!-- Page Features -->
+      <div class="row text-center">
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="images/eduardo.png" alt="eduardo's pic">
+            <div class="card-body">
+              <h4 class="card-title">Eduardo</h4>
+              <p class="card-text">Interested in technology, business, real estate, and fashion.
+              Using development skills for entertainment and wellbeing of people.</p>
+            </div>
+            <div class="card-footer">
+              <a href="https://www.linkedin.com/in/eduardo-cruz-a91887150" class="btn btn-primary">Find out More!</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="images/michael.jpg" alt="Michael's picture" style="width:200px; height:200px;">
+            <div class="card-body">
+              <h4 class="card-title">Michael</h4>
+              <p class="card-text">Michael's Bio</p>
+            </div>
+            <div class="card-footer">
+              <a href="https://www.linkedin.com/in/michael-kovacic-16076417/" class="btn btn-primary">Find out More!</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="images/michelle.jpg" alt="Michelle's picture">
+            <div class="card-body">
+              <h4 class="card-title">Michelle</h4>
+              <p class="card-text">After working in social justice and education policy for fifteen years I am pivoting to web development. I hope someday to combine the two.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="images/zack.png" alt="Zack's picture">
+            <div class="card-body">
+              <h4 class="card-title">Zack</h4>
+              <p class="card-text">Zack's</p>
+            </div>
+            <div class="card-footer">
+              <a href="https://www.linkedin.com/in/zakaria-moumen-48034b118/" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <div class="signup-modal-container hidden">
+      <div class="signup-modal-window">
+        <h2 id="title">Sign Up</h2>
+          <div id="signUpForm">
+            <form id="sign-up-form">
+              <div class="input-info">
+                <label class="label">Name</label>
+
+                <input type="name" id="name-input-signup" name="Name" placeholder="Barry Bongs">
+              </div>
+              <br>
+              <div class="input-info">
+                <label class="label">Email</label>
+                <input type="email" id= "email-input-signup" name="Email" placeholder="barrybongs25@ismoke.com">
+              </div>
+              <br>
+              <div class="input-info">
+                <label class="label">Password</label>
+                <input type="Password" id="password-input-signup" name="Password" placeholder="Password">
+              </div>
+              <br>
+              <div class="input-info">
+                <button type="submit" value="submit" id="submitBtn">Submit
+                </button>
+              </div>
+              <br>
+              <div class="input-info">
+                <button type="cancelBtn" id="cancelBtn">Cancel</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="signin-modal-container hidden1">
+      <div class="signin-modal-window">
+        <h2 id="title">Login</h2>
+          <div id="signInForm">
+            <form id="sign-in-form">
+              
+              <div class="input-info">
+                <label class="label">Email</label>
+                <input type="email" id= "email-input-login" name="Email" placeholder="barrybongs25@ismoke.com">
+              </div>
+              <div class="input-info">
+                <label class="label">Password</label>
+                <input type="Password" id="password-input-login" name="Password" placeholder="Password">
+              </div>
+              <div class="input-info">
+                <button type="submit" value="submit" id="submitBtn">Submit</button>
+              </div>
+              <div class="input-info">
+                <button type="cancelBtn" id="cancelBtn">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- <button id="modal-button">
+            dkdkdkkd
+          </button> -->
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Play Bud(s) 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+
+    <script type="text/javascript" src="Javascript/index.js"></script>
+
+  </body>
+
+</html>
