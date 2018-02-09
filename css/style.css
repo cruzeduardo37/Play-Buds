@@ -415,6 +415,15 @@ img {
 	align-items: center;
 }
 
+#space-bar {
+	width: 100%;
+	padding: 10% 5%;
+	background-color: #4b6811;
+	opacity: 0.8;
+	text-align: center;
+}
+
+
 /*questionsmodal*/
 
 #questionsModal {
