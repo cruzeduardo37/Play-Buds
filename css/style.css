@@ -341,7 +341,7 @@ button:hover {
 
 #main-picture {
 	position: relative;
-	left: 50%;
+	left: 25%;
 	bottom: 0;
 	opacity: 0.9;
 }
@@ -413,4 +413,45 @@ img {
 .credits {
 	clear: both;
 	align-items: center;
+}
+
+/*questionsmodal*/
+
+#questionsModal {
+	/*display:none;*/
+	position:fixed;
+	z-index:1;
+	margin-top:0;
+	margin-left:0;
+	height:100%;
+	width:100%;
+	overflow:auto;
+	background-image:url("images/leafbackground.jpg");
+	
+	
+}
+.questionsModalConent {
+	text-align:center;
+	color:black;
+	background:lightgrey;
+	margin: 15% auto;
+	padding:30px;
+	padding-top:15px;
+	width:90%;
+	box-shadow: 10px 10px 5px;
+	border-radius:60px;
+	background-color: #4b8340;
+	opacity:.8;
+
+}
+.scalePic {
+	width:10%;
+	height:100%;
+	border-radius:100px;
+	padding:10px;
+	font-size:15px;
+	transition: transform .2s;
+}
+.scalePic:hover {
+	transform: scale(1.25)
 }
