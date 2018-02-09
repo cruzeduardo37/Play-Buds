@@ -1,0 +1,416 @@
+body{
+	background-image: url("../images/leafbackground.jpg");
+	background-size: 100%;
+}
+
+.navbar{
+	background-color: #4b6811;
+	opacity:.75;
+	border-color: #4b6811;
+	color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	color: white;
+}
+
+#active{
+	background-color: #759307;
+}
+
+/*.navbar-inverse .navbar-nav>li>a:visited {
+	color:#9d9d9d;
+}*/
+.navbar-inverse .navbar-brand{
+	color: white;
+}
+
+/*hover and focus selector section*/
+.navbar-inverse .navbar-brand:hover {
+	color: #9d9d9d;
+}
+
+.navbar-inverse .navbar-brand:focus {
+	color: #9d9d9d;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+	color: #9d9d9d;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus {
+	color: #9d9d9d;
+}
+
+#get-started:hover {
+	color: #9d9d9d;
+}
+
+#get-started:focus {
+	outline:none;
+	color: #9d9d9d;
+}
+
+/*container containing get started button*/
+.container{
+	position: relative;
+}
+
+#get-started{
+	height: 150px;
+	width: 300px;
+	position: absolute;
+	background-color: #4b6811;
+	border-radius: 25px;
+	color: white;
+	opacity:.9;
+	top: 60%;
+	left: 60%;
+	font-size: 24px;
+	z-index: 50;
+}
+/*start of the modal*/
+.signup-modal-container, .signin-modal-container{
+	height: 100vh;
+	width:  100vw;
+	position: fixed;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	background-color: rgba(255,255,255, 0.75);
+	z-index: 1000;
+}
+
+.signup-modal-window, .signin-modal-window{
+	height:500px;
+	width: 600px;
+	background-color: grey;
+	position:fixed;
+	box-shadow: 0px 0px 60px 15px black;
+}
+
+#title{
+	text-align: center;
+}
+
+.hidden{
+	display: none;
+}
+
+.hidden1{
+	display: none;
+}
+
+#signUpForm, #signInForm{
+	background-color:#4b6811;
+	width: 90%;
+	margin-left:auto;
+	margin-right:auto;
+	/*justify-content: center;*/
+	/*align-items: center;*/
+}
+
+input, label{
+	display: block;
+	width:75%;
+	margin-left:30px;
+}
+
+.label{
+	font-size:15px;
+	color: black;
+}
+
+
+/*trivia game styling*/
+
+#trivia-display {
+	position: relative;
+}
+
+#wrapper {
+	width: 960px;
+	height: 95%;
+	box-sizing: border-box;
+	margin: 2.5%;
+	background-color: #4b8340;
+	padding: 1%;
+	text-align: center;
+	opacity: 0.8;
+}
+
+#sub-wrapper {
+  position: relative;
+  top: 15%;
+}
+
+button {
+  display: block;
+  width: 50%;
+  height: 20%;
+  margin: 0 auto;
+  font-size: 42px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+
+img {
+  height: 200px;
+}
+
+h1 {
+	padding-top: 2.5%;
+	font-family: Geo, sans-serif;
+	font-size: 6.5em;
+	font-weight: bold;
+	color: white;
+}
+
+h2 {
+	margin-bottom: 25px;
+	font-size: 35px;
+	text-decoration: underline;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+#start {
+  margin-top: 10%;
+  background: yellowgreen;
+  border: 2px solid green;
+}
+
+button:hover {
+  background: yellowgreen;
+  border: 2px solid green;
+}
+
+/*hangman game styling*/
+
+#hangManHeader {
+	text-align:center;
+	font-size:25px;
+}
+
+#stonerDiv {
+	width: 300px;
+	position:relative;
+	margin-top:100px;  
+	margin:auto;
+}
+
+#smokingHangMan {
+	width:300px;
+	height:300px;
+}
+
+#gameSection {
+	background:#4b8340;
+	opacity: 0.8;
+	text-align: center;
+    width: 50%;
+    position: relative;
+    margin: auto;
+    color: white;
+}
+
+/*game html page*/
+
+#trivia-game, #hangman-game, #memory-game {
+	background-color:#4b6811; 
+	opacity:0.8;
+}
+
+/*contact page styling*/
+
+.contactContainer {
+	width:600px;
+	margin:auto;
+	height:auto;
+	background-color: #4b6811;
+	opacity: 0.8;
+}
+
+.contactSection {
+	margin-top:2%;
+	text-align:center;
+	font-size: 50px;
+	text-shadow: 1px 1px 1px #475c68;
+	color:white;
+}
+
+.form {
+	padding:20px;
+	margin:2%;
+	color:white;
+}
+
+#submitButton {
+	background-color: black;
+	color:lightgrey;
+	margin: 2%;
+}
+
+#userName, #email, #comments {
+	display: block;
+	width:90%;
+	margin:2%;
+}
+
+
+/*about page*/
+
+.btn-primary {     
+	background-color: black; 
+	opacity: 0.8;
+}
+
+#card {
+	padding: 1%;
+	background-color: #4b6811;
+	opacity: 0.9;
+}
+
+
+/*logo*/
+
+.logo {
+	max-width:400%;
+	max-height:400%;
+	margin-top:-28px;
+}
+
+/*home page*/
+
+.signup-modal-container, .signin-modal-container{
+	height: 100%;
+	width:  100%;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+/*	background-image:url("images/leafbackground.jpg");*/
+	z-index: 1000;
+}
+
+.signup-modal-window, .signin-modal-window{
+	height:auto;
+	width:500px;
+	padding:10px;
+	background-color:#4b6811;
+	position:fixed;
+	box-shadow: 0px 0px 60px 15px black;
+	border-radius:25px;
+	opacity:.9;
+}
+
+#title{
+	text-align: center;
+	color:black;
+}
+
+.hidden{
+	display: none;
+}
+
+.hidden1{
+	display: none;
+}
+
+#submitBtn, #cancelBtn {
+	margin-left:70%;
+	background-color:black;
+	color:lightgrey;
+	border-radius:10px;
+	width: 25%;
+    height: 20%;
+    margin: 0 auto;
+    font-size: 25px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+}
+
+#main-picture {
+	position: relative;
+	left: 50%;
+	bottom: 0;
+	opacity: 0.9;
+}
+
+/*memory game styling*/
+
+.card {
+	float: left;
+	height: 25%;
+	padding: 5px;
+	text-align: center;
+	display: block;
+	perspective: 500px;
+	position: relative;
+	cursor: pointer;
+	z-index: 50; 
+	-webkit-tap-highlight-color: rgba(0,0,0,0);  
+}
+
+.A {
+	transform: rotateY(-180deg);
+}
+
+
+.flipper {
+	width: 100%;
+	height: 100%;
+	display: block;
+	transform-style: preserve-3d;
+	transition: .4s ease-in-out;
+}
+
+&.picked, &.matched {
+	transform: rotateY(180deg);
+}
+
+&.matched {
+	animation: 1s matchAnim ease-in-out;
+	animation-delay: .4s;
+}
+
+
+.front, .back {
+	backface-visibility: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+	max-height: 100%;
+}
+
+.front {
+	transform: rotateY(-180deg);
+	position: absolute;
+	background-color: white;
+	display: hidden;
+}
+.back	{
+	transform: rotateX(0deg);
+	background-color: white;
+}
+
+
+.credits {
+	clear: both;
+	align-items: center;
+}

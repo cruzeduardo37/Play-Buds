@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Play Buds Homepage</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+	
+		<!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Geo" rel="stylesheet" type="text/css">
+
+
+</head>
+
+	<body>
+
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="index.html"><img src="images/playbudslogolightgreen.png" alt="playbuds logo" class="logo"></a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li id="active"><a href="#">Home</a></li>
+		      <li><a href="about.html">About</a></li>
+		      <li><a href="contact.html">Contact</a></li>
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right">
+		      <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+		    </ul>
+		  </div>
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-9">
+					<div id="game">
+						<div id="trivia-display">
+						    <div id="wrapper">
+						      <h1>Toking Trivia!</h1>
+						      <div id="sub-wrapper">
+						        <div id="quiz-area">
+						          <button id="start">Start</button>
+						        </div>
+						      </div>
+						    </div>							
+						</div>
+						<div id="hangman-display">
+							<div id="hangManContainer">
+								<h2 id="stonerImage"></h2>
+								<!-- The div where our stoner image will be shown. -->
+
+								<div id="stonerDiv"><img id="smokingHangMan" src="images/hangmansmoking.png" alt="stoner hang man"></div>
+
+								<div id="gameSection">
+
+								<h2>Press any key to get started!</h2>
+								<div>
+
+								  <h3 class="section-title">Wins</h3>
+								  <!-- The div where our wins will be shown. -->
+								  <div id="wins"></div>
+								</div>
+
+								<div id="current-word-section">
+								  <h3 class="section-title">Current Word</h3>
+								  <!-- The div where our current word (and guessing progress) will be shown. -->
+								  <div id="current-word"></div>
+								</div>
+
+								<div id="guesses-remaining-section">
+								  <h3 class="section-title">Number of Guesses Remaining</h3>
+								  <!-- The div where our remaining guesses will be shown. -->
+								  <div id="guesses-remaining"></div>
+								</div>
+
+								<div id="guessed-letters-section">
+								  <h3 class="section-title">Letters Already Guessed</h3>
+								  <!-- The div where our guesses letters will be shown. -->
+								  <div id="guessed-letters"></div>
+								</div>
+
+								</div>
+							</div>						
+						</div>	
+						<div id="memory-display">
+							<div class="gameWrap">
+								<div class="row game"></div>
+								<div class="row game2"></div>
+							</div>
+<!-- 							<div class="credits">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div id="score" style="height:600px;">
+						<div class="row">
+							<div class="col-md-12">
+								<button type="button" class="btn btn-default btn-lg btn-block" id="trivia-game"><a href="game.js"><img src="images/trivia-game.png" alt="trivia game" width="100%" height="8%" style="display: block; margin: 1% 0;">Trivia Game</a></button>
+							</div>	
+						</div>	
+						<div class="row">
+							<div class="col-md-12">
+								<button type="button" class="btn btn-default btn-lg btn-block" id="hangman-game"><a href=""><img src="images/hangman_1.png" alt="hangman" width="100%" height="8%" style="display: block; margin: 1% 0;">Hangman</a></button>
+							</div>	
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<button type="button" class="btn btn-default btn-lg btn-block" id="memory-game"><a href=""><img src="images/memory.png" alt="gif game" width="100%" height="8%" style="display: block; margin: 1% 0;">Memory Game</a></button>
+							</div>	
+						</div>																	
+					</div>
+				</div>
+			</div>
+
+			<footer class="col-md-12" style="position: fixed; bottom:0; text-align: center;">
+				<h5>&copy; Play Bud(s) 2018</h5>
+			</footer>
+		</div>
+
+						<!--jQuery-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!--jQuery-->	
+
+		<script type="text/javascript" src="javascript/playbud.js"></script>
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	</body>
+</html>
