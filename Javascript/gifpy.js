@@ -73,14 +73,16 @@ var cards = [
 
 ];
 
-	// var gifName = [];
-	// var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=4rflNs59030SuauN0DtLlygAYaj36Q6J&q=" + gifName + "&limit=15&offset=0&rating=PG&lang=en";
+	var gifName = [];
+	var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=4rflNs59030SuauN0DtLlygAYaj36Q6J&q=" + gifName + "&limit=15&offset=0&rating=PG&lang=en";
 
 
-	// $.ajax({
-	// 		url: queryURL,
-	// 		method: "GET"
-	// 	}).then(function(response){
+	$.ajax({
+			url: queryURL,
+			method: "GET"
+		}).then(function(response){
+
+		};
 
 
 //create an initialize function to run at the start of the page, will include reset, shuffle, reset modals,
@@ -90,7 +92,14 @@ var cards = [
 //functio to put the cards onto the page
 // function(buildHTML){
 	//main card div
-$("document").ready(function buildHTML(){
+$("document").ready(buildHTML);
+
+function buildHTML(){
+
+	console.log("buildHTML")
+
+	cards = shuffle(cards);
+
 
 	for (var i = 0; i < 4; i++) {
 	
@@ -161,19 +170,26 @@ $("document").ready(function buildHTML(){
 		imageBack.attr("height", "200px");
 		back.append(imageBack);
 	};
-
-});
+}
 
 // var itemNumber = [".one", ".two", ".three", ".four", ".five", ".six", ".seven", ".eight"]
 
 var choice1 = "";
 var choice2 = "";
+var chosen = [];
 
-	$(".flip-container").on("click", ".flipper", function(){
-		console.log(typeof this);
-		$(this).toggleClass("A");
-
+	$(".gameWrap").on("click", ".flipper", function(){
+		console.log(this);
+		
 		var choiceId = $(this).attr("data-id");
+
+		if(chosen.includes(choiceId)){
+			return;
+		}
+		
+		$(this).toggleClass("A");
+		console.log(chosen.length);
+
 
 		if (choice1 == ""){
 			choice1 = choiceId;
@@ -183,34 +199,56 @@ var choice2 = "";
 
 		}
 
+		setTimeout(function(){
 		if (choice1 != "" && choice2 != "") {
 
 			if(choice1 === choice2){
 				console.log("choice1: " + choice1 + "choice2: " + choice2 + "... win")
+				chosen.push(choiceId);
 				
 			}else{
 				console.log("choice1: " + choice1 + "choice2: " + choice2 + "... lose")
 				
-				setTimeout(function(){ 
+				
 				$("div.flipper[data-id='" + choice1 + "']").removeClass("A");
 				$("div.flipper[data-id='" + choice2 + "']").removeClass("A");
-				}, 3000);
-
+				
 			}
+
+		if(chosen.length === 4){
+			
+			reset();
+		}
+
 			choice1 = "";
 			choice2 = "";
 		}
+	}, 1000);
 
 	});
 	
 
 
+function shuffle(cards) {
+	for (var i = cards.length; i; i--){
+		randIndex = Math.floor(Math.random() * i)
+		tempCard = cards[i-1]
+		cards[i-1] = cards[randIndex]
+		cards[randIndex] = tempCard
+	};
+	return cards
+};
+
 
 function reset (){
+	console.log("reset");
 
-	$(".one").removeClass("A");
+	$(".game").empty();		
+	$(".game2").empty();
 
-
+	chosen = [];
+	
+	buildHTML();
 }
 
 //function to show and hide the cards
